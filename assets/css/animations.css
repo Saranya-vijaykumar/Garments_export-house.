@@ -129,56 +129,47 @@
 /* --------------------------------------------------------------------------
    2. Scroll-Triggered Reveal Classes (Managed by JS IntersectionObserver)
    -------------------------------------------------------------------------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-left.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
+/* --------------------------------------------------------------------------
+   3. Fail-Safe Scroll Reveal Classes (Guaranteed Visible by Default)
+   -------------------------------------------------------------------------- */
+.reveal,
+.reveal-left,
+.reveal-right,
 .reveal-scale {
+  opacity: 1;
+  transform: none;
+}
+
+/* Progressive enhancement: Only hide elements if JavaScript observer is active */
+.js-reveal-active .reveal:not(.active),
+.js-reveal-active .reveal-left:not(.active),
+.js-reveal-active .reveal-right:not(.active),
+.js-reveal-active .reveal-scale:not(.active) {
   opacity: 0;
-  transform: scale(0.92);
+  transform: translateY(28px);
   transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
               transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.reveal-scale.active {
+.js-reveal-active .reveal-left:not(.active) {
+  transform: translateX(-35px);
+}
+
+.js-reveal-active .reveal-right:not(.active) {
+  transform: translateX(35px);
+}
+
+.js-reveal-active .reveal-scale:not(.active) {
+  transform: scale(0.96);
+}
+
+.js-reveal-active .reveal.active,
+.js-reveal-active .reveal-left.active,
+.js-reveal-active .reveal-right.active,
+.js-reveal-active .reveal-scale.active {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
 
 /* Stagger Delays */
@@ -279,4 +270,10 @@
     transform: none !important;
     transition: none !important;
   }
+}
+
+@keyframes autoHidePreloader {
+  0% { opacity: 1; visibility: visible; }
+  85% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }

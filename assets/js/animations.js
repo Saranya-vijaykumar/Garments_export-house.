@@ -11,6 +11,7 @@
   // 1. Scroll-Triggered Reveal Animations
   // --------------------------------------------------------------------------
   function initScrollReveals() {
+    document.documentElement.classList.add('js-reveal-active');
     const revealElements = document.querySelectorAll(
       '.reveal, .reveal-left, .reveal-right, .reveal-scale'
     );
