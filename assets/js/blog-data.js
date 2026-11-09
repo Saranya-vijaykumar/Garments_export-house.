@@ -1,6 +1,6 @@
 /**
- * GlobalStitch - Trade Intelligence & Regulatory Briefings Dataset
- * blog-data.js
+ * GlobalStitch - Technical Apparel & Trade Intelligence Dataset
+ * assets/js/blog-data.js
  */
 
 (function () {
@@ -8,114 +8,97 @@
 
   const blogArticles = [
     {
-      id: 'post-01',
-      title: 'EU Corporate Sustainability Due Diligence Directive (CSDDD): What Apparel Importers Need to Know for 2026/2027',
-      category: 'Regulatory Advisory',
-      categoryBadge: 'Trade Law',
-      author: 'Dr. Evelyn Sterling',
-      authorRole: 'Chief Quality & ESG Compliance Officer',
+      id: 'seams',
+      aliases: ['post-01', 'post-seams'],
+      title: 'Various Types and Classes of Seams Used in Sewing',
+      category: 'Stitching & Seams',
+      categoryBadge: 'ASTM D6193 Standard',
+      author: 'Rajiv Sengupta',
+      authorRole: 'Director of Textile R&D & Apparel Engineering',
       authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'February 2026',
-      readTime: '8 Min Read',
-      heroImage: 'assets/images/blog-sustainable.jpg',
-      excerpt: 'A comprehensive compliance briefing for brand procurement directors navigating supply chain human rights vetting, environmental audits, and chain-of-custody documentation across European Union maritime entry points.',
-      figureImage: 'assets/images/facility-lab.jpg',
-      figureCaption: 'Figure 1.1: In-house spectrophotometer and water chemical oxygen demand (COD) testing chamber.',
-      figureBadge: 'ZDHC Level 3 Verified',
-      quote: '"By 2027, failure to verify Zero Liquid Discharge (ZLD) effluent compliance at your dye supplier will be treated with identical legal severity as shipping hazardous chemicals across borders."',
+      date: '10 February 2026',
+      readTime: '7 Min Read',
+      heroImage: 'assets/images/garmen-blog-seams.jpg',
+      excerpt: 'Comprehensive technical guide to ASTM D6193 international standards for Superimposed Seams (SS), Lapped Seams (LS), Bound Seams (BS), and Flat Seams (FS) in export apparel production.',
+      figureImage: 'assets/images/garmen-hero-sewing.jpg',
+      figureCaption: 'Figure 1.1: Multi-needle differential feed sewing line configured for ISO Class 400 and Class 600 flatlock seams.',
+      figureBadge: 'ISO 4915 / ASTM D6193',
+      quote: '"The seam is the fundamental architectural backbone of a garment. Selecting the wrong stitch class can reduce tensile joint endurance by up to 45% under active stretch."',
       tableOfContents: [
-        { id: 'section1', title: '1. Scope & Enforcement Timeline' },
-        { id: 'section2', title: '2. Key Human Rights Mandates' },
-        { id: 'section3', title: '3. Environmental & Water Due Diligence' },
-        { id: 'section4', title: '4. Chain of Custody & TCs' },
-        { id: 'section5', title: '5. Checklist for Sourcing Directors' }
+        { id: 'sec-seams-1', title: '1. International Seam Classification (ASTM D6193)' },
+        { id: 'sec-seams-2', title: '2. Superimposed Seams (Class SS)' },
+        { id: 'sec-seams-3', title: '3. Lapped Seams (Class LS) & Denim Fells' },
+        { id: 'sec-seams-4', title: '4. Flatlock Seams (Class FS) for Activewear' },
+        { id: 'sec-seams-5', title: '5. Quality Audit Matrix for Export Seam Strengths' }
       ],
       sections: [
         {
-          id: 'section1',
-          heading: '1. Scope & Enforcement Timeline',
-          content: `<p>The directive applies directly to EU-based companies with over 1,000 employees and net turnover exceeding &euro;450 million worldwide, as well as non-EU companies generating equivalent turnover within the EU single market. Crucially, the due diligence requirements cascade down into every direct (Tier 1) and indirect (Tier 2/3) manufacturing partner operating outside Europe.</p>
-          <div style="background-color: var(--bg-surface-alt); padding: 1.5rem; border-radius: var(--radius-sm); border-left: 4px solid var(--color-accent); margin-block: 1.5rem;">
-            <strong>Key Enforcement Threshold:</strong> Member states are empowered to levy fines up to <strong>5% of the company’s worldwide net turnover</strong> and hold executive officers personally liable for systemic failure to prevent supply chain abuses.
+          id: 'sec-seams-1',
+          heading: '1. International Seam Classification (ASTM D6193)',
+          content: `<p>In modern industrial garment manufacturing, seams are standardized under the ASTM D6193 (formerly US Federal Standard 751a) and ISO 4916 specifications. These standards categorize every structural textile union into eight distinct classes based on the configuration of fabric plies, seam edges, and stitch interlocking mechanisms.</p>
+          <div style="background-color: var(--bg-surface-alt, #111A2E); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent, #B99A62); margin-block: 1.5rem;">
+            <strong>Technical Principle:</strong> A properly engineered seam achieves strength parity with the parent fabric (at least 80% seam efficiency) while preserving elastic recovery and preventing seam slippage under cross-grain load.
           </div>`
         },
         {
-          id: 'section2',
-          heading: '2. Key Human Rights Mandates',
-          content: `<p>Apparel importers must demonstrate documented oversight over three non-negotiable labor baselines:</p>
+          id: 'sec-seams-2',
+          heading: '2. Superimposed Seams (Class SS)',
+          content: `<p>Class SS represents the most widely utilized seam category in light-to-medium knitwear, shirts, and casual blouses. Formed by superimposing two or more fabric plies with edges aligned and joined along the border:</p>
           <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-            <li><strong>Fair Living Wage Guarantees:</strong> Proving that factory wage structures meet independently calculated living wage benchmarks rather than merely minimum local statutory rates.</li>
-            <li><strong>Working Hour Caps:</strong> Enforcing strict limits on voluntary overtime, ensuring 48-hour maximum standard workweeks and at least one consecutive 24-hour rest period per seven days.</li>
-            <li><strong>Workplace Safety & Medical Infrastructure:</strong> Certified fire escape access, on-site registered nurses, free female sanitation facilities, and functional worker grievance committees.</li>
+            <li><strong>SSa (Plain Seam):</strong> Formed with lockstitch (ISO 301) for dress shirt side seams and blouse armholes.</li>
+            <li><strong>SSe (Enclosed Seam):</strong> The plies are turned inside-out so seam allowances are completely hidden inside collar points and pocket flaps.</li>
+            <li><strong>SSa with 5-Thread Safety Stitch (ISO 516):</strong> Combines 3-thread overlock with a 2-thread chainstitch safety line, standard in woven trouser outseams.</li>
           </ul>`
         },
         {
-          id: 'section3',
-          heading: '3. Environmental & Water Due Diligence',
-          content: `<p>Textile dyeing and wet processing represent the highest regulatory risk under CSDDD environmental provisions. Brands sourcing dyed knits and wovens must prove that finishing mills operate fully compliant wastewater treatment infrastructure.</p>`
+          id: 'sec-seams-3',
+          heading: '3. Lapped Seams (Class LS) & Denim Fells',
+          content: `<p>In heavyweight denim jeans, workwear coveralls, and technical outerwear, Lapped Seams (Class LS) dominate. The fabric plies overlap with folded raw edges tucked inward:</p>
+          <p><strong>LSc (Flat-Felled Seam):</strong> Woven on feed-off-the-arm double or triple-needle sewing machines. With twin parallel needle threads and locked underthreads, it withstands over 600 Newtons of lateral tension without edge unraveling.</p>`
         },
         {
-          id: 'section4',
-          heading: '4. Chain of Custody & Transaction Certificates (TCs)',
-          content: `<p>Under the EU directive and parallel US UFLPA enforcement, paper-based declarations are no longer sufficient. Sourcing desks must demand digital batch tracking connecting raw organic cotton bales or recycled fiber pellet lots directly to each export carton's bill of lading.</p>
-          <div style="background: var(--bg-surface-alt); border-radius: var(--radius-md); padding: 1.5rem; margin-block: 1.75rem; border: 1px solid var(--border-color);">
-            <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.82rem; color: var(--color-accent); margin-bottom: 1rem;">Digital Chain-of-Custody Verification Path</div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-                <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent);">STAGE 01 &bull; GINNING</div>
-                <div style="font-weight: 600; margin-block: 0.25rem;">Farm & Bale Lot TC</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted);">GOTS Raw Fiber certification stamped at source gin.</div>
-              </div>
-              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-                <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent);">STAGE 02 &bull; SPINNING</div>
-                <div style="font-weight: 600; margin-block: 0.25rem;">Yarn Batch Lot QR</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted);">Digital ring-spun lot tracking registered on blockchain ledger.</div>
-              </div>
-              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-                <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent);">STAGE 03 &bull; MILLING</div>
-                <div style="font-weight: 600; margin-block: 0.25rem;">ZDHC Dyestuff Log</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted);">OEKO-TEX Class I chemical compliance certificate issue.</div>
-              </div>
-              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-                <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent);">STAGE 04 &bull; EXPORT</div>
-                <div style="font-weight: 600; margin-block: 0.25rem;">Consolidated Dossier</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted);">Attached directly to customs declaration and e-BL documents.</div>
-              </div>
-            </div>
-          </div>`
+          id: 'sec-seams-4',
+          heading: '4. Flatlock Seams (Class FS) for Activewear',
+          content: `<p>Class FS seams bring opposing cut edges together in butt-joint alignment, with zero overlapping bulk. Using 4-needle 6-thread coverstitch machines (ISO 607):</p>
+          <p>Eliminates friction hot-spots in running tights, yoga shorts, and base layers, permitting four-way stretch without chafing delicate skin surfaces.</p>`
         },
         {
-          id: 'section5',
-          heading: '5. Preparedness Checklist for Sourcing Directors',
-          content: `<div class="card" style="padding: 1.5rem; margin-top: 1rem; overflow-x: auto;">
-            <table style="width:100%; min-width:550px; font-size:0.9rem;">
+          id: 'sec-seams-5',
+          heading: '5. Quality Audit Matrix for Export Seam Strengths',
+          content: `<div class="card" style="padding: 1.5rem; margin-top: 1rem; overflow-x: auto; background: var(--bg-surface-alt, #111A2E);">
+            <table style="width:100%; min-width:550px; font-size:0.9rem; border-collapse: collapse;">
               <thead>
-                <tr style="border-bottom: 2px solid var(--border-color); color:var(--color-accent); text-transform:uppercase;">
-                  <th style="padding:0.75rem 0.5rem;">Audit Pillar</th>
-                  <th style="padding:0.75rem 0.5rem;">Required Certification</th>
-                  <th style="padding:0.75rem 0.5rem;">GlobalStitch Status</th>
+                <tr style="border-bottom: 2px solid var(--border-color, rgba(255,255,255,0.15)); color:var(--color-accent, #B99A62); text-align: left;">
+                  <th style="padding:0.75rem 0.5rem;">Seam Class</th>
+                  <th style="padding:0.75rem 0.5rem;">Stitch ISO Code</th>
+                  <th style="padding:0.75rem 0.5rem;">Primary Apparel Application</th>
+                  <th style="padding:0.75rem 0.5rem;">Target Tensile Rating</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid var(--border-light);">
-                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Social Labor Standard</td>
-                  <td style="padding:0.75rem 0.5rem;">BSCI Grade A / SEDEX SMETA 4-Pillar</td>
-                  <td style="padding:0.75rem 0.5rem; color:var(--color-success); font-weight:700;">&check; 100% Certified</td>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Superimposed (SSa)</td>
+                  <td style="padding:0.75rem 0.5rem;">ISO 301 Lockstitch</td>
+                  <td style="padding:0.75rem 0.5rem;">Formal Shirts, Dresses, Linings</td>
+                  <td style="padding:0.75rem 0.5rem; color:#10B981; font-weight:700;">&ge; 220 N</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border-light);">
-                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Chemical Hazard Screening</td>
-                  <td style="padding:0.75rem 0.5rem;">OEKO-TEX Standard 100 Class I</td>
-                  <td style="padding:0.75rem 0.5rem; color:var(--color-success); font-weight:700;">&check; 100% Certified</td>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Flat-Felled (LSc)</td>
+                  <td style="padding:0.75rem 0.5rem;">ISO 401 Twin Chain</td>
+                  <td style="padding:0.75rem 0.5rem;">Denim Inseams, Work Uniforms</td>
+                  <td style="padding:0.75rem 0.5rem; color:#10B981; font-weight:700;">&ge; 580 N</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border-light);">
-                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Organic Fiber Traceability</td>
-                  <td style="padding:0.75rem 0.5rem;">GOTS Version 7.0 with Digital TCs</td>
-                  <td style="padding:0.75rem 0.5rem; color:var(--color-success); font-weight:700;">&check; 100% Certified</td>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Bound Seam (BSa)</td>
+                  <td style="padding:0.75rem 0.5rem;">ISO 406 Twin Cover</td>
+                  <td style="padding:0.75rem 0.5rem;">T-Shirt Neck Rib, Armhole Trims</td>
+                  <td style="padding:0.75rem 0.5rem; color:#10B981; font-weight:700;">&ge; 310 N</td>
                 </tr>
                 <tr>
-                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Effluent Recycling</td>
-                  <td style="padding:0.75rem 0.5rem;">Zero Liquid Discharge (ZLD) RO Plant</td>
-                  <td style="padding:0.75rem 0.5rem; color:var(--color-success); font-weight:700;">&check; 98.4% Water Recycled</td>
+                  <td style="padding:0.75rem 0.5rem; font-weight:600;">Flat Seam (FSa)</td>
+                  <td style="padding:0.75rem 0.5rem;">ISO 607 Flatlock</td>
+                  <td style="padding:0.75rem 0.5rem;">Seamless Compression Sportswear</td>
+                  <td style="padding:0.75rem 0.5rem; color:#10B981; font-weight:700;">&ge; 450 N</td>
                 </tr>
               </tbody>
             </table>
@@ -124,324 +107,531 @@
       ]
     },
     {
-      id: 'post-02',
-      title: 'Navigating US CPSIA Lead & Phthalate Regulations in Childrenswear Export',
-      category: 'Safety & Compliance',
-      categoryBadge: 'CPSIA Regulations',
-      author: 'Marcus Vance',
-      authorRole: 'Head of Quality Assurance & Lab Testing',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'January 2026',
+      id: 'design',
+      aliases: ['post-02', 'post-design'],
+      title: 'Textile Designing: Types, Importance and Impacts',
+      category: 'Textile Design',
+      categoryBadge: 'CAD / Print Innovation',
+      author: 'Claudia Vance',
+      authorRole: 'Head of Creative Design & Colorway Development',
+      authorAvatar: 'assets/images/garmen-team-claudia.jpg',
+      date: '09 February 2026',
       readTime: '6 Min Read',
-      heroImage: 'assets/images/blog-global-trade.jpg',
-      excerpt: 'Critical guidelines for nickel-free snap fasteners, button tensile pull tests, and flammability compliance for the North American retail market.',
-      figureImage: 'assets/images/factory-storage.jpg',
-      figureCaption: 'Figure 2.1: Automated 90N pneumatic button pull test station.',
-      figureBadge: 'CPSC Accredited Lab',
-      quote: '"In infant apparel manufacturing, zero-defect engineering is not merely an operational goal—it is a legal guarantee required by federal safety commissions."',
-      tableOfContents: [
-        { id: 'section1', title: '1. Total Lead Content & Substrate Testing' },
-        { id: 'section2', title: '2. Phthalate Restrictions in Screen Prints' },
-        { id: 'section3', title: '3. Mechanical Tensile Tests for Snaps' },
-        { id: 'section4', title: '4. Children’s Sleepwear Flammability (16 CFR 1615)' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. Total Lead Content & Substrate Testing',
-          content: `<p>Under the Consumer Product Safety Improvement Act (CPSIA), all accessible components on children's apparel (under 12 years of age) must not exceed 100 parts per million (ppm) of total lead content. This mandate covers metal zipper sliders, eyelets, snaps, and metallic foils.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. Phthalate Restrictions in Screen Prints',
-          content: `<p>Plasticized PVC inks are strictly forbidden under Section 108 of CPSIA. GlobalStitch employs exclusively 100% water-based polyurethane and certified silicone inks verified non-detectable for DEHP, DBP, BBP, DINP, and DIDP compounds.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. Mechanical Tensile Tests for Snaps',
-          content: `<p>All small parts attached to infant garments must withstand a sustained pull force of 70 Newtons (15.7 lbf) for 10 seconds without separation, preventing potential choking hazards. We record digital pull logs for every 500 garments stitched.</p>`
-        },
-        {
-          id: 'section4',
-          heading: '4. Children’s Sleepwear Flammability (16 CFR 1615)',
-          content: `<p>Strict vertical flame testing requires non-flame retardant natural chemical approaches through snug-fitting dimensional designs that protect infants without chemical skin exposure.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-03',
-      title: 'The Economics of Zero Liquid Discharge (ZLD) in Modern Apparel Dye Houses',
-      category: 'Sustainable Tech',
-      categoryBadge: 'ZLD Engineering',
-      author: 'Dr. Evelyn Sterling',
-      authorRole: 'Chief Quality & ESG Compliance Officer',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'January 2026',
-      readTime: '5 Min Read',
-      heroImage: 'assets/images/blog-knitwear.jpg',
-      excerpt: 'How our closed-loop effluent recycling plant cuts freshwater consumption by 98.4% while maintaining shade reproducibility.',
-      figureImage: 'assets/images/facility-embroidery.jpg',
-      figureCaption: 'Figure 3.1: Multi-stage reverse osmosis filtration membrane bank in our industrial wastewater recovery facility.',
-      figureBadge: '98.4% Water Recovery',
-      quote: '"Zero Liquid Discharge is no longer an environmental cost burden; it is our primary hedge against regional water stress and municipal tariff surges."',
-      tableOfContents: [
-        { id: 'section1', title: '1. The Multi-Stage RO Filtration Loop' },
-        { id: 'section2', title: '2. Salt Recovery & Glauber Salt Crystallization' },
-        { id: 'section3', title: '3. Capex Amortization & Mill ROI' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. The Multi-Stage RO Filtration Loop',
-          content: `<p>By combining biological aeration with ultrafiltration and three-stage reverse osmosis (RO), raw textile effluent is converted back into demineralized permeate water with zero detectable biological oxygen demand (BOD) or chemical dye residues.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. Salt Recovery & Glauber Salt Crystallization',
-          content: `<p>Our multiple effect evaporators (MEE) recover pure sodium sulfate (Glauber salt) from concentrated reject brine, enabling 92% re-use of salts directly inside subsequent reactive dye baths.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. Capex Amortization & Mill ROI',
-          content: `<p>While initial capital expenditures for high-recovery ZLD systems are substantial, recycling 1.2 million liters daily saves $380,000 annually in municipal freshwater purchases and wastewater discharge levies.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-04',
-      title: 'Recycled Polyamide vs. Virgin Elastane: Engineering High-Stretch Activewear',
-      category: 'Fabric Innovation',
-      categoryBadge: 'Materials Science',
-      author: 'Rajiv Sengupta',
-      authorRole: 'Director of Textile R&D',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'December 2025',
-      readTime: '7 Min Read',
-      heroImage: 'assets/images/facility-lab.jpg',
-      excerpt: 'Comparative laboratory analysis of recovery retention, moisture evaporation indices, and seam shear stress after 50 wash cycles.',
-      figureImage: 'assets/images/factory-cutting.jpg',
-      figureCaption: 'Figure 4.1: High-gauge circular knitting for seamless performance compression leggings.',
-      figureBadge: 'GRS Certified Nylon',
-      quote: '"Achieving genuine circularity in sportswear demands fabrics that retain elastic recovery power through decades of laundering."',
-      tableOfContents: [
-        { id: 'section1', title: '1. Tensile Elasticity & Hysteresis Curves' },
-        { id: 'section2', title: '2. Moisture Management & Capillary Wicking' },
-        { id: 'section3', title: '3. Ultrasonic Seam Welds vs. 4-Needle Flatlock' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. Tensile Elasticity & Hysteresis Curves',
-          content: `<p>Post-industrial recycled nylon 6 (ECONYL / Q-NOVA) matches virgin polyamide within 1.8% of tensile yield strength while decreasing virgin petrochemical reliance by 80%.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. Moisture Management & Capillary Wicking',
-          content: `<p>Dual-channel micro-groove filament cross-sections pull perspiration outward to evaporate 38% faster than conventional ring-spun jersey.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. Ultrasonic Seam Welds vs. 4-Needle Flatlock',
-          content: `<p>Bonded seams eliminate chafe points and maintain stretch parity along body contours during high-impact athletic movement.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-05',
-      title: 'Demystifying Incoterms 2020: Choosing Between FOB, CIF, and DDP',
-      category: 'Logistics & Trade',
-      categoryBadge: 'Trade Logistics',
-      author: 'Sophia Chen',
-      authorRole: 'Head of International Freight & Customs',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'December 2025',
-      readTime: '9 Min Read',
-      heroImage: 'assets/images/material-recycled.jpg',
-      excerpt: 'A strategic procurement guide assessing insurance transfer points, maritime demurrage liabilities, and customs brokerage overhead.',
-      figureImage: 'assets/images/process-spools.jpg',
-      figureCaption: 'Figure 5.1: Bonded container freight stuffing directly at GlobalStitch export logistics terminal.',
-      figureBadge: 'Incoterms 2020 Compliant',
-      quote: '"The most expensive freight term is never the carrier rate—it is unanticipated port demurrage incurred by missing customs certificates."',
-      tableOfContents: [
-        { id: 'section1', title: '1. FOB (Free on Board) - The Industry Standard' },
-        { id: 'section2', title: '2. CIF (Cost, Insurance & Freight) Mechanics' },
-        { id: 'section3', title: '3. DDP (Delivered Duty Paid) for Fast-Turn Drops' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. FOB (Free on Board) - The Industry Standard',
-          content: `<p>Under FOB terms, GlobalStitch assumes full liability and expense for fabric procurement, manufacture, export packaging, inland transit, and loading past the ship's rail at the named seaport.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. CIF (Cost, Insurance & Freight) Mechanics',
-          content: `<p>Ideal for emerging brands that lack consolidated shipping agency contracts, allowing GlobalStitch to book volume ocean freight to destination ports.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. DDP (Delivered Duty Paid) for Fast-Turn Drops',
-          content: `<p>The supplier handles customs clearance, tariff duty payments, and domestic drayage directly to your 3PL warehouse door.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-06',
-      title: 'AQL 1.5 vs. 2.5 Sampling: What Quality Directors Need to Know',
-      category: 'Quality Assurance',
-      categoryBadge: 'AQL Standards',
-      author: 'Marcus Vance',
-      authorRole: 'Head of Quality Assurance & Lab Testing',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'November 2025',
-      readTime: '6 Min Read',
-      heroImage: 'assets/images/facility-embroidery.jpg',
-      excerpt: 'Defect classification matrices, major vs. minor stitch non-conformities, and how statistical lot acceptance protects retail margins.',
-      figureImage: 'assets/images/product-formal.jpg',
-      figureCaption: 'Figure 6.1: Inline statistical sampling inspection under 1,000 lux illumination.',
-      figureBadge: 'ISO 2859-1 Verified',
-      quote: '"Quality is not inspected into an export garment; it is engineered through machine calibration and verified by uncompromising statistics."',
-      tableOfContents: [
-        { id: 'section1', title: '1. Statistical Sampling Tables (ISO 2859-1)' },
-        { id: 'section2', title: '2. Major vs. Minor Defect Boundaries' },
-        { id: 'section3', title: '3. In-Line Inspection vs. Final Carton Audit' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. Statistical Sampling Tables (ISO 2859-1)',
-          content: `<p>An order of 10,000 garments under Normal Inspection Level II requires a random sample lot of 315 units, with acceptance criteria capped at 10 major defects for AQL 1.5.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. Major vs. Minor Defect Boundaries',
-          content: `<p>Major defects impair garment salability or function (broken stitches, shade variations, out-of-tolerance measurements). Minor defects represent slight cosmetic deviations.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. In-Line Inspection vs. Final Carton Audit',
-          content: `<p>Catching tension discrepancies during sewing line assembly eliminates bulk repair cycles prior to final packaging.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-07',
-      title: 'US UFLPA Supply Chain Tracing: Surviving CBP Audits',
-      category: 'Trade Law',
-      categoryBadge: 'Customs Compliance',
-      author: 'Sophia Chen',
-      authorRole: 'Head of International Freight & Customs',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'November 2025',
-      readTime: '6 Min Read',
-      heroImage: 'assets/images/factory-cutting.jpg',
-      excerpt: 'Practical methodologies for implementing isotopic cotton tracing and yarn-forward certification to clear US Customs seamlessly.',
-      figureImage: 'assets/images/hero-garment-worker.jpg',
-      figureCaption: 'Figure 7.1: Isotopic fingerprint analysis confirming farm-of-origin cotton provenance.',
-      figureBadge: 'CBP Compliant',
-      quote: '"With US Customs detaining billions in apparel, paper certificates are obsolete. You need isotopic origin fingerprints and digital custody ledger."',
-      tableOfContents: [
-        { id: 'section1', title: '1. Rebuttable Presumption Mechanics' },
-        { id: 'section2', title: '2. Isotopic DNA & Geolocation Testing' },
-        { id: 'section3', title: '3. Complete Transaction Certificate Dossier' }
-      ],
-      sections: [
-        {
-          id: 'section1',
-          heading: '1. Rebuttable Presumption Mechanics',
-          content: `<p>UFLPA presumes any cotton goods containing raw material from restricted regions are prohibited unless clear and convincing evidence proves otherwise.</p>`
-        },
-        {
-          id: 'section2',
-          heading: '2. Isotopic DNA & Geolocation Testing',
-          content: `<p>We test fiber lots with stable isotope ratio mass spectrometry (IRMS) matching regional soil and precipitation chemical signatures.</p>`
-        },
-        {
-          id: 'section3',
-          heading: '3. Complete Transaction Certificate Dossier',
-          content: `<p>Every shipment is backed by GOTS TC certificates, ginning invoices, spinning batch records, and container seals.</p>`
-        }
-      ]
-    },
-    {
-      id: 'post-08',
-      title: 'Organic vs. Regenerative Cotton: The 2026 Pricing Outlook',
-      category: 'Raw Materials',
-      categoryBadge: 'Cotton Outlook',
-      author: 'Rajiv Sengupta',
-      authorRole: 'Director of Textile R&D',
-      authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'October 2025',
-      readTime: '7 Min Read',
-      heroImage: 'assets/images/product-formal.jpg',
-      excerpt: 'Analyzing global yield forecasts, farmer premium pricing, and how GOTS 7.0 standards affect procurement economics.',
+      heroImage: 'assets/images/garmen-blog-design.jpg',
+      excerpt: 'From dobby weaves to intricate computer-aided jacquards: how advanced CAD software and high-speed digital printing transform fashion collection development.',
       figureImage: 'assets/images/about-garment-rack.jpg',
-      figureCaption: 'Figure 8.1: Long-staple organic cotton yarn spinning on digital ring frames.',
-      figureBadge: 'GOTS 7.0 Certified',
-      quote: '"Regenerative cotton restores topsoil carbon while providing apparel brands with verified Scope 3 carbon reduction metrics."',
+      figureCaption: 'Figure 2.1: Swatch color matching and Pantone seasonal color trend translation table.',
+      figureBadge: 'Pantone TCX Certified',
+      quote: '"Textile design is where chemical color science meets tactile drape aesthetics. A collection lives or dies by its first hand-touch and light reflectivity."',
       tableOfContents: [
-        { id: 'section1', title: '1. Global Harvest Yields & Farm Premiums' },
-        { id: 'section2', title: '2. GOTS 7.0 Certification Requirements' },
-        { id: 'section3', title: '3. Balancing Fabric Cost in Bulk Wholesale' }
+        { id: 'sec-design-1', title: '1. The Evolution of Industrial Textile Design' },
+        { id: 'sec-design-2', title: '2. Woven vs. Knitted Pattern Architecture' },
+        { id: 'sec-design-3', title: '3. Digital Reactive & Sublimation Printing' },
+        { id: 'sec-design-4', title: '4. Accelerating Time-to-Market with 3D CAD' }
       ],
       sections: [
         {
-          id: 'section1',
-          heading: '1. Global Harvest Yields & Farm Premiums',
-          content: `<p>Farmgate premiums for certified regenerative cotton have stabilized at 12–15% over conventional benchmarks, offset by reduced chemical pesticide inputs.</p>`
+          id: 'sec-design-1',
+          heading: '1. The Evolution of Industrial Textile Design',
+          content: `<p>Modern textile design combines aesthetic visualization with rigorous chemical and mechanical engineering. Designers must predict yarn shrinkage, dye uptake behavior, and warp-weft tensility long before yarn is loaded onto a loom.</p>`
         },
         {
-          id: 'section2',
-          heading: '2. GOTS 7.0 Certification Requirements',
-          content: `<p>The latest version mandates living wage assessments for agricultural workers and strict pesticide residue testing down to 0.01 mg/kg.</p>`
+          id: 'sec-design-2',
+          heading: '2. Woven vs. Knitted Pattern Architecture',
+          content: `<p>In woven textiles, computerized Jacquard heads control thousands of independent warp threads to weave three-dimensional textures, brocades, and multi-tone slub chambray. In circular knitting, electronic needle selection creates engineered jacquard ribs, bird's-eye mesh, and gradient ventilation holes for performance athletic wear.</p>`
         },
         {
-          id: 'section3',
-          heading: '3. Balancing Fabric Cost in Bulk Wholesale',
-          content: `<p>Long-term contract farming agreements lock in yarn pricing 6 months ahead of seasonal collection launches.</p>`
+          id: 'sec-design-3',
+          heading: '3. Digital Reactive & Sublimation Printing',
+          content: `<p>Direct-to-fabric digital printing achieves up to 1200 DPI resolution without water-intensive rotary screens, reducing sample turnaround from 4 weeks to under 48 hours for fast-fashion drop calendars.</p>`
+        },
+        {
+          id: 'sec-design-4',
+          heading: '4. Accelerating Time-to-Market with 3D CAD',
+          content: `<p>By rendering fabrics digitally in 3D fitting software (CLO3D, Browzwear), brands eliminate 3 to 4 rounds of physical sampling, cutting prototyping emissions by over 70%.</p>`
         }
       ]
     },
     {
-      id: 'post-09',
-      title: 'Zero-Waste Pattern Engineering: Cutting Fabric Consumption by 14%',
-      category: 'Automation',
-      categoryBadge: 'CAD / CAM Innovation',
-      author: 'Marcus Vance',
-      authorRole: 'Head of Quality Assurance & Lab Testing',
+      id: 'thread',
+      aliases: ['post-03', 'post-thread'],
+      title: 'Functional and Aesthetic Properties of Sewing Thread',
+      category: 'Thread Engineering',
+      categoryBadge: 'Yarn Physics',
+      author: 'Rajiv Sengupta',
+      authorRole: 'Director of Textile R&D',
       authorAvatar: 'assets/images/team-coo.jpg',
-      date: 'October 2025',
+      date: '08 February 2026',
       readTime: '5 Min Read',
-      heroImage: 'assets/images/factory-storage.jpg',
-      excerpt: 'How AI nested layout algorithms and high-precision laser cutting tables minimize scrap while slashing FOB costs for high-volume orders.',
-      figureImage: 'assets/images/factory-hall.jpg',
-      figureCaption: 'Figure 9.1: Computerized multi-ply vacuum cutting table with nested pattern layout.',
-      figureBadge: '94% Marker Efficiency',
-      quote: '"Fabric constitutes up to 60% of garment FOB cost. A 14% improvement in marker efficiency is the single biggest profitability lever in export apparel."',
+      heroImage: 'assets/images/garmen-blog-thread.jpg',
+      excerpt: 'Analyzing core-spun polyester versus 100% spun cotton threads for tensile strength, elongation recovery, heat resistance, and seam puckering avoidance.',
+      figureImage: 'assets/images/process-spools.jpg',
+      figureCaption: 'Figure 3.1: Automated high-speed thread winding with tension monitoring sensors.',
+      figureBadge: 'Core-Spun Polyester',
+      quote: '"Thread represents less than 1% of garment FOB cost, yet accounts for over 50% of sewing machine down-time when tensile tolerances are violated."',
       tableOfContents: [
-        { id: 'section1', title: '1. AI Nested Marker Optimization' },
-        { id: 'section2', title: '2. Vacuum-Assisted Tension-Free Spreading' },
-        { id: 'section3', title: '3. Diverting Cutting Offcuts to Circular Yarn' }
+        { id: 'sec-thread-1', title: '1. Thread Anatomy & Twist Direction' },
+        { id: 'sec-thread-2', title: '2. Core-Spun Poly vs. Spun Cotton' },
+        { id: 'sec-thread-3', title: '3. Thermal Resistance & High-Speed Needle Friction' },
+        { id: 'sec-thread-4', title: '4. Thread Count & Needle Size Pairing' }
       ],
       sections: [
         {
-          id: 'section1',
-          heading: '1. AI Nested Marker Optimization',
-          content: `<p>Modern CAD algorithms test 100,000 piece orientations in seconds, achieving 94% marker utilization compared to 80% manual layouts.</p>`
+          id: 'sec-thread-1',
+          heading: '1. Thread Anatomy & Twist Direction',
+          content: `<p>Industrial sewing threads utilize a "Z-twist" (left twist) to prevent untwisting during rotation in high-speed loopers operating at up to 6,000 stitches per minute.</p>`
         },
         {
-          id: 'section2',
-          heading: '2. Vacuum-Assisted Tension-Free Spreading',
-          content: `<p>Eliminating fabric drag prevents stretch distortion across 100-ply lays of elastane jersey and delicate voile.</p>`
+          id: 'sec-thread-2',
+          heading: '2. Core-Spun Poly vs. Spun Cotton',
+          content: `<p>Poly-wrapped poly-core (PPC) threads deliver the ultimate tensile strength and wash stability, whereas cotton-wrapped poly-core (CPC) threads swell during garment overdyeing, creating seamless aesthetic shade matching in casual streetwear collections.</p>`
         },
         {
-          id: 'section3',
-          heading: '3. Diverting Cutting Offcuts to Circular Yarn',
-          content: `<p>Remaining 6% edge scraps are shredded mechanically and re-spun into 60/40 recycled cotton/polyester fleece.</p>`
+          id: 'sec-thread-3',
+          heading: '3. Thermal Resistance & High-Speed Needle Friction',
+          content: `<p>Needle temperatures reach 300&deg;C in continuous multi-ply operations. High-grade sewing threads incorporate special silicone-wax lubricants to glide smoothly without melting or skipping stitches.</p>`
+        },
+        {
+          id: 'sec-thread-4',
+          heading: '4. Thread Count & Needle Size Pairing',
+          content: `<p>Optimal stitch balance requires pairing Tex 24 threads with Nm 70/10 needles for lightweight silks, and Tex 80 threads with Nm 110/18 needles for 14 oz heavy denim fabrics.</p>`
+        }
+      ]
+    },
+    {
+      id: 'startup',
+      aliases: ['post-04', 'post-startup'],
+      title: 'Startup Idea for Distinctive Artisanal Fabric-Products',
+      category: 'Artisanal Startups',
+      categoryBadge: 'DTC Brand Strategy',
+      author: 'Hector Mendez',
+      authorRole: 'Vice President of Global Sourcing & Business Development',
+      authorAvatar: 'assets/images/garmen-team-hector.jpg',
+      date: '05 February 2026',
+      readTime: '6 Min Read',
+      heroImage: 'assets/images/garmen-blog-artisanal.jpg',
+      excerpt: 'How new direct-to-consumer apparel founders can leverage small-batch flexible export manufacturing and artisanal handloom heritage to create high-margin heritage apparel.',
+      figureImage: 'assets/images/garmen-project-tailors.jpg',
+      figureCaption: 'Figure 4.1: Master pattern cutters collaborating with artisanal weaving clusters on tech-pack translations.',
+      figureBadge: 'Artisanal Heritage',
+      quote: '"Modern consumers no longer buy generic commodities; they invest in authenticity, provenance, and the unmistakable tactile richness of true handloom artistry."',
+      tableOfContents: [
+        { id: 'sec-startup-1', title: '1. The Resurgence of Artisanal Luxury' },
+        { id: 'sec-startup-2', title: '2. Solving the MOQ Barrier for Emerging Brands' },
+        { id: 'sec-startup-3', title: '3. Storytelling & Traceability as Margin Drivers' },
+        { id: 'sec-startup-4', title: '4. Export House Partnership Roadmap' }
+      ],
+      sections: [
+        {
+          id: 'sec-startup-1',
+          heading: '1. The Resurgence of Artisanal Luxury',
+          content: `<p>While mass-market fast fashion faces severe margin compression, heritage direct-to-consumer labels are booming by highlighting authentic handloom weaves, organic botanical vegetable dyes, and hand-spun yarn imperfections.</p>`
+        },
+        {
+          id: 'sec-startup-2',
+          heading: '2. Solving the MOQ Barrier for Emerging Brands',
+          content: `<p>GlobalStitch’s agile export incubator enables emerging designers to launch capsules starting at 300 units per style, bridging the gap between bespoke craftsmanship and international export compliance.</p>`
+        },
+        {
+          id: 'sec-startup-3',
+          heading: '3. Storytelling & Traceability as Margin Drivers',
+          content: `<p>Including QR-enabled artisan profiles and geotagged weaving village provenance allows DTC founders to command 4x to 6x retail markups over production cost.</p>`
+        },
+        {
+          id: 'sec-startup-4',
+          heading: '4. Export House Partnership Roadmap',
+          content: `<p>Step-by-step guidance from tech-pack submission, shade card confirmation, physical size-set approvals, to international customs clearance and 3PL direct delivery.</p>`
+        }
+      ]
+    },
+    {
+      id: 'weaving',
+      aliases: ['post-05', 'post-weaving'],
+      title: 'What is Satin Weave in Textile Fabric Manufacturing',
+      category: 'Weaving Technology',
+      categoryBadge: 'Fabric Engineering',
+      author: 'Rajiv Sengupta',
+      authorRole: 'Director of Textile R&D',
+      authorAvatar: 'assets/images/team-coo.jpg',
+      date: '04 February 2026',
+      readTime: '6 Min Read',
+      heroImage: 'assets/images/garmen-blog-satin.jpg',
+      excerpt: 'Technical breakdown of warp-float structures, harness repeat patterns, and filament twist dynamics that produce lustrous silky surfaces for eveningwear, luxury lining, and loungewear.',
+      figureImage: 'assets/images/garmen-fabric-linen.jpg',
+      figureCaption: 'Figure 5.1: 5-harness satin weave repeat diagram displaying warp interlacings and float lengths.',
+      figureBadge: '5-Harness Satin Weave',
+      quote: '"Satin’s signature shimmer is created through deliberate mathematical separation of binding points, allowing unbroken light refraction across floating filaments."',
+      tableOfContents: [
+        { id: 'sec-weaving-1', title: '1. The Geometry of the Satin Weave' },
+        { id: 'sec-weaving-2', title: '2. 5-Harness vs. 8-Harness Satin' },
+        { id: 'sec-weaving-3', title: '3. Satin vs. Sateen: The Technical Difference' },
+        { id: 'sec-weaving-4', title: '4. Industrial Applications in Export Fashion' }
+      ],
+      sections: [
+        {
+          id: 'sec-weaving-1',
+          heading: '1. The Geometry of the Satin Weave',
+          content: `<p>Unlike plain weave (1/1 repeat) or twill weave (diagonal ribs), satin weave is characterized by long warp (or weft) floats that cover the surface with minimal visible interlacing points, resulting in an exceptionally smooth, lustrous face with a matte back.</p>`
+        },
+        {
+          id: 'sec-weaving-2',
+          heading: '2. 5-Harness vs. 8-Harness Satin',
+          content: `<p>A 5-harness satin provides superior snag resistance and commercial durability, making it ideal for tailored blazer linings and bridal gowns. An 8-harness satin maximizes surface sheen and liquid drape, essential for luxury evening slip dresses and high-end sleepwear.</p>`
+        },
+        {
+          id: 'sec-weaving-3',
+          heading: '3. Satin vs. Sateen: The Technical Difference',
+          content: `<p>In textile nomenclature, <strong>Satin</strong> strictly refers to warp-faced weaves woven from continuous filament yarns (silk, polyester, acetate), while <strong>Sateen</strong> designates weft-faced weaves woven from spun staple yarns (mercerized combed cotton).</p>`
+        },
+        {
+          id: 'sec-weaving-4',
+          heading: '4. Industrial Applications in Export Fashion',
+          content: `<p>Guidelines for preventing seam slippage in satin apparel through french seams, bias cutting protocols, and anti-static finishing baths.</p>`
+        }
+      ]
+    },
+    {
+      id: 'business',
+      aliases: ['post-06', 'post-business'],
+      title: '5 Great Business Lessons From the Textile Industry',
+      category: 'Executive Strategy',
+      categoryBadge: 'Operations & Finance',
+      author: 'Marcus Vance',
+      authorRole: 'Executive VP of Global Supply Chain Operations',
+      authorAvatar: 'assets/images/garmen-team-hector.jpg',
+      date: '03 January 2026',
+      readTime: '8 Min Read',
+      heroImage: 'assets/images/garmen-blog-business.jpg',
+      excerpt: 'Supply chain resilience, nearshoring dynamics, automated inspection technology, and the financial returns of clean green manufacturing in competitive global trade.',
+      figureImage: 'assets/images/stage-09-quality.jpg',
+      figureCaption: 'Figure 6.1: Cross-departmental weekly line balance and delivery schedule review meeting.',
+      figureBadge: 'Lean Manufacturing',
+      quote: '"In apparel manufacturing, speed without quality is bankruptcy; quality without speed is irrelevance. The winners master automated predictability."',
+      tableOfContents: [
+        { id: 'sec-business-1', title: '1. Cash Flow Velocity Beats Unit Margin' },
+        { id: 'sec-business-2', title: '2. Resilience Through Strategic Dual-Sourcing' },
+        { id: 'sec-business-3', title: '3. Automation as a Worker Empowerment Tool' },
+        { id: 'sec-business-4', title: '4. ESG Compliance as a Competitive Moat' },
+        { id: 'sec-business-5', title: '5. The Power of Direct Factory Transparency' }
+      ],
+      sections: [
+        {
+          id: 'sec-business-1',
+          heading: '1. Cash Flow Velocity Beats Unit Margin',
+          content: `<p>High-volume fashion manufacturers thrive by shortening order-to-cash cycles. Achieving a 45-day manufacturing lead time allows brands to operate with 30% leaner inventory buffers.</p>`
+        },
+        {
+          id: 'sec-business-2',
+          heading: '2. Resilience Through Strategic Dual-Sourcing',
+          content: `<p>Leading fashion corporations balance risk by pairing core volume production in high-capacity Asian hubs with quick-response nearshore units for fast mid-season reorders.</p>`
+        },
+        {
+          id: 'sec-business-3',
+          heading: '3. Automation as a Worker Empowerment Tool',
+          content: `<p>Investing in computerized cutting and automatic pocket welters reduces physical strain on operators while cutting line scrap rates to under 1.2%.</p>`
+        },
+        {
+          id: 'sec-business-4',
+          heading: '4. ESG Compliance as a Competitive Moat',
+          content: `<p>Mills with certified Zero Liquid Discharge and WRAP Gold certifications win multi-year enterprise contracts because they protect global brands from catastrophic brand liability.</p>`
+        },
+        {
+          id: 'sec-business-5',
+          heading: '5. The Power of Direct Factory Transparency',
+          content: `<p>Eliminating middle-tier trading agencies unlocks direct CAD collaboration and real-time ERP line tracking between buyers and master pattern technicians.</p>`
+        }
+      ]
+    },
+    {
+      id: 'csddd',
+      aliases: ['post-07', 'post-csddd'],
+      title: 'EU Ecodesign & CSDDD: What Global Brands Must Know',
+      category: 'Trade Compliance',
+      categoryBadge: 'EU Regulations',
+      author: 'Dr. Evelyn Sterling',
+      authorRole: 'Chief ESG Compliance & Quality Officer',
+      authorAvatar: 'assets/images/team-coo.jpg',
+      date: '12 February 2026',
+      readTime: '9 Min Read',
+      heroImage: 'assets/images/blog-csddd.jpg',
+      excerpt: 'Full breakdown of mandatory digital product passports (DPP), circular mono-fiber construction rules, and supply chain transparency mandates enforced across European Union borders.',
+      figureImage: 'assets/images/facility-lab.jpg',
+      figureCaption: 'Figure 7.1: Certified laboratory chemical screening chamber for ZDHC MRSL Version 3.1 compliance.',
+      figureBadge: 'EU Ecodesign 2026',
+      quote: '"By 2027, every garment imported into the EU must carry an interoperable Digital Product Passport tracing fiber origins back to farm GPS coordinates."',
+      tableOfContents: [
+        { id: 'sec-csddd-1', title: '1. Regulatory Scope & Timeline' },
+        { id: 'sec-csddd-2', title: '2. Digital Product Passport (DPP) Architecture' },
+        { id: 'sec-csddd-3', title: '3. Ban on Unsold Textile Destruction' },
+        { id: 'sec-csddd-4', title: '4. Actionable Steps for Procurement Directors' }
+      ],
+      sections: [
+        {
+          id: 'sec-csddd-1',
+          heading: '1. Regulatory Scope & Timeline',
+          content: `<p>The European Union’s Corporate Sustainability Due Diligence Directive (CSDDD) establishes enforceable corporate civil liability for labor rights and environmental standards across entire tier 1–3 supply chains.</p>`
+        },
+        {
+          id: 'sec-csddd-2',
+          heading: '2. Digital Product Passport (DPP) Architecture',
+          content: `<p>All export garments must incorporate scannable QR tags linked to open data standards, verifying fiber recycled percentages, chemical formulations, and repair manuals.</p>`
+        },
+        {
+          id: 'sec-csddd-3',
+          heading: '3. Ban on Unsold Textile Destruction',
+          content: `<p>Beginning in 2026, European retailers are prohibited from shredding or incinerating unsold apparel, mandating small-batch precision manufacturing and circular mono-fiber design.</p>`
+        },
+        {
+          id: 'sec-csddd-4',
+          heading: '4. Actionable Steps for Procurement Directors',
+          content: `<p>Audit checklists to ensure all tier 1 and tier 2 textile mills hold verified GOTS, OEKO-TEX Standard 100, and ZLD effluent treatment certifications.</p>`
+        }
+      ]
+    },
+    {
+      id: 'dyeing',
+      aliases: ['post-08', 'post-dyeing'],
+      title: 'Low-Liquor Jet Dyeing: Cutting Water Use by 68%',
+      category: 'Sustainable Tech',
+      categoryBadge: 'Dyehouse Innovation',
+      author: 'Rajiv Sengupta',
+      authorRole: 'Director of Textile R&D',
+      authorAvatar: 'assets/images/team-coo.jpg',
+      date: '14 February 2026',
+      readTime: '6 Min Read',
+      heroImage: 'assets/images/blog-dyeing-tech.jpg',
+      excerpt: 'How ultra-low 1:3.5 liquor ratio dyeing machinery coupled with automated chemical dosing preserves groundwater without sacrificing shade brilliance or wash fastness.',
+      figureImage: 'assets/images/compliance-zld.jpg',
+      figureCaption: 'Figure 8.1: Industrial stainless steel soft-flow jet dyeing machines operating at 1:3.5 liquor ratio.',
+      figureBadge: '68% Water Reduction',
+      quote: '"Switching from 1:8 liquor ratio to 1:3.5 saves over 450,000 liters of potable water every single day in a standard 10-ton dyehouse facility."',
+      tableOfContents: [
+        { id: 'sec-dyeing-1', title: '1. The Physics of Liquor Ratio Reduction' },
+        { id: 'sec-dyeing-2', title: '2. Airflow & Soft-Flow Nozzle Engineering' },
+        { id: 'sec-dyeing-3', title: '3. Automated Gravimetric Colorant Dosing' },
+        { id: 'sec-dyeing-4', title: '4. Energy & Steam Cost Economics' }
+      ],
+      sections: [
+        {
+          id: 'sec-dyeing-1',
+          heading: '1. The Physics of Liquor Ratio Reduction',
+          content: `<p>Conventional winches and atmospheric dye vats operate at high 1:8 to 1:12 liquor-to-goods ratios. Low-liquor jet dyeing utilizes pressurized fabric transport to achieve full penetration at only 1:3.5 ratio.</p>`
+        },
+        {
+          id: 'sec-dyeing-2',
+          heading: '2. Airflow & Soft-Flow Nozzle Engineering',
+          content: `<p>High-speed air-assisted nozzles circulate delicate knitted viscose and micro-modal fabrics without pilling, crease marks, or surface abrasions.</p>`
+        },
+        {
+          id: 'sec-dyeing-3',
+          heading: '3. Automated Gravimetric Colorant Dosing',
+          content: `<p>Computerized dosing stations measure reactive dyestuffs and alkalis down to 0.01 grams, guaranteeing lot-to-lot Delta-E color variance below 0.6.</p>`
+        },
+        {
+          id: 'sec-dyeing-4',
+          heading: '4. Energy & Steam Cost Economics',
+          content: `<p>Heating half as much dye liquor slashes natural gas and boiler steam fuel consumption by 52%, resulting in substantial FOB cost reductions on wholesale knitwear orders.</p>`
+        }
+      ]
+    },
+    {
+      id: 'nearshoring',
+      aliases: ['post-09', 'post-nearshoring'],
+      title: 'Nearshoring vs Strategic Sourcing: Total Landed Cost',
+      category: 'Supply Chain Economics',
+      categoryBadge: 'Global Trade Logistics',
+      author: 'Sophia Chen',
+      authorRole: 'Head of International Freight & Customs',
+      authorAvatar: 'assets/images/team-coo.jpg',
+      date: '15 February 2026',
+      readTime: '7 Min Read',
+      heroImage: 'assets/images/blog-nearshoring.jpg',
+      excerpt: 'Comparative analysis of raw cotton access, shipping economics, ocean freight volatility, and manufacturing scale between Mediterranean nearshoring and Indian export production ecosystems.',
+      figureImage: 'assets/images/hub-dubai.jpg',
+      figureCaption: 'Figure 9.1: Multimodal export logistics container hub with direct maritime feeder links.',
+      figureBadge: 'Total Landed Cost Model',
+      quote: '"Nearshoring promises shorter transit times, but scale-driven labor efficiencies and raw material proximity often maintain Asian sourcing as the undisputed profit champion."',
+      tableOfContents: [
+        { id: 'sec-near-1', title: '1. Deconstructing Total Landed Cost (TLC)' },
+        { id: 'sec-near-2', title: '2. Raw Cotton & Vertical Mill Proximity' },
+        { id: 'sec-near-3', title: '3. Ocean Freight Volatility & Buffer Inventory' },
+        { id: 'sec-near-4', title: '4. The Hybrid Agile Procurement Strategy' }
+      ],
+      sections: [
+        {
+          id: 'sec-near-1',
+          heading: '1. Deconstructing Total Landed Cost (TLC)',
+          content: `<p>True sourcing analysis looks beyond nominal FOB prices to calculate import tariffs, inland drayage, container demurrage risk, and capital tied up during ocean transit.</p>`
+        },
+        {
+          id: 'sec-near-2',
+          heading: '2. Raw Cotton & Vertical Mill Proximity',
+          content: `<p>Manufacturing in regions with immediate domestic cotton crops eliminates multi-country shipping tariffs for raw fiber, saving 18% on baseline greige yarn costs.</p>`
+        },
+        {
+          id: 'sec-near-3',
+          heading: '3. Ocean Freight Volatility & Buffer Inventory',
+          content: `<p>Analysis of post-2024 Red Sea maritime freight rates and how 21-day direct sailings from western Indian ports compare to European truck delivery times.</p>`
+        },
+        {
+          id: 'sec-near-4',
+          heading: '4. The Hybrid Agile Procurement Strategy',
+          content: `<p>How top-performing Fortune 500 apparel brands utilize 70% high-efficiency offshore volume production and 30% nearshore quick-turn replenishment.</p>`
         }
       ]
     }
   ];
 
+  // Helper to find article by id or alias
+  function findArticle(key) {
+    if (!key) return blogArticles[0];
+    const k = key.trim().toLowerCase();
+    return blogArticles.find(a => 
+      a.id.toLowerCase() === k || 
+      (a.aliases && a.aliases.some(alias => alias.toLowerCase() === k))
+    ) || blogArticles[0];
+  }
+
+  // Client-Side Dynamic Controller for blog-details.html
+  function initBlogDetailPage() {
+    const mainHeading = document.getElementById('blogMainHeading');
+    if (!mainHeading) return; // Not on blog-details.html
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const postKey = urlParams.get('post') || urlParams.get('id') || urlParams.get('article') || 'seams';
+    const article = findArticle(postKey);
+
+    // 1. Browser Title
+    document.title = `${article.title} | GlobalStitch Trade Intelligence`;
+
+    // 2. Breadcrumbs
+    const breadcrumb = document.getElementById('blogBreadcrumbTitle');
+    if (breadcrumb) breadcrumb.textContent = article.title;
+
+    // 3. Category / Pill Badge
+    const pill = document.querySelector('.hero-pill-badge');
+    if (pill) {
+      pill.innerHTML = `${article.category} &bull; ${article.categoryBadge}`;
+    }
+
+    // 4. Main Title
+    mainHeading.textContent = article.title;
+
+    // 5. Author Info
+    const authorName = document.getElementById('blogAuthorName');
+    if (authorName) authorName.textContent = article.author;
+
+    const authorRole = document.getElementById('blogAuthorRole');
+    if (authorRole) authorRole.textContent = article.authorRole;
+
+    const authorAvatar = document.getElementById('blogAuthorAvatar');
+    if (authorAvatar && article.authorAvatar) {
+      authorAvatar.src = article.authorAvatar;
+      authorAvatar.alt = article.author;
+    }
+
+    // 6. Meta Date & Reading Time
+    const publishDate = document.getElementById('blogPublishDate');
+    if (publishDate) publishDate.innerHTML = `Published: ${article.date} &bull; Verified Technical Article`;
+
+    const readTime = document.getElementById('blogReadingTime');
+    if (readTime) readTime.innerHTML = `${article.readTime} &bull; Technical Briefing`;
+
+    // 7. Hero Image
+    const heroImg = document.getElementById('blogHeroImg');
+    if (heroImg) {
+      heroImg.src = article.heroImage;
+      heroImg.alt = article.title;
+    }
+
+    // 8. Lead Excerpt
+    const leadText = document.getElementById('blogLeadText');
+    if (leadText) leadText.textContent = article.excerpt;
+
+    // 9. Table of Contents
+    const tocList = document.getElementById('blogTocList');
+    if (tocList && article.tableOfContents) {
+      tocList.innerHTML = article.tableOfContents
+        .map(item => `<li><a href="#${item.id}" style="color:var(--text-main); font-weight:600; text-decoration:none;">${item.title}</a></li>`)
+        .join('');
+    }
+
+    // 10. Article Sections Body
+    const sectionsContainer = document.getElementById('blogSectionsContainer');
+    if (sectionsContainer && article.sections) {
+      let sectionsHTML = article.sections.map(sec => `
+        <div class="blog-section-block" style="margin-bottom: 2rem;">
+          <h3 id="${sec.id}" style="margin-block: 2.25rem 1rem; color: var(--color-primary); font-size: 1.45rem;">${sec.heading}</h3>
+          <div>${sec.content}</div>
+        </div>
+      `).join('');
+
+      // Add quote if present
+      if (article.quote) {
+        sectionsHTML += `
+          <blockquote style="margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--bg-surface-alt); border-left: 4px solid var(--color-accent); border-radius: 0 8px 8px 0; font-style: italic; font-size: 1.15rem; color: var(--text-main); line-height: 1.6;">
+            ${article.quote}
+          </blockquote>
+        `;
+      }
+
+      // Add figure if present
+      if (article.figureImage) {
+        sectionsHTML += `
+          <figure style="margin: 2.5rem 0; background: var(--bg-surface-alt); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <div style="border-radius: 6px; overflow: hidden; max-height: 420px;">
+              <img src="${article.figureImage}" alt="${article.figureCaption || article.title}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <figcaption style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+              <span>${article.figureCaption || ''}</span>
+              ${article.figureBadge ? `<span style="background: var(--color-accent); color: #FFF; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;">${article.figureBadge}</span>` : ''}
+            </figcaption>
+          </figure>
+        `;
+      }
+
+      sectionsContainer.innerHTML = sectionsHTML;
+    }
+
+    // 11. Render 3 Related Articles (linking to their individual pages)
+    const relatedGrid = document.getElementById('relatedBlogsGrid');
+    if (relatedGrid) {
+      const otherArticles = blogArticles.filter(a => a.id !== article.id).slice(0, 3);
+      relatedGrid.innerHTML = otherArticles.map(rel => `
+        <article class="card blog-card reveal" style="display:flex; flex-direction:column; overflow:hidden; border-radius:12px; background:var(--bg-surface); border:1px solid var(--border-color);">
+          <div class="blog-thumb" style="height:210px; overflow:hidden; position:relative;">
+            <a href="blog-details.html?post=${rel.id}">
+              <img src="${rel.heroImage}" alt="${rel.title}" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+            </a>
+            <span class="card-badge" style="position:absolute; top:12px; left:12px; background:var(--color-accent); color:#FFF; padding:4px 10px; font-size:0.75rem; font-weight:700; border-radius:4px;">${rel.categoryBadge}</span>
+          </div>
+          <div class="blog-body" style="padding:1.5rem; display:flex; flex-direction:column; flex:1;">
+            <div class="blog-meta" style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.75rem;">
+              <span>${rel.date}</span> &bull; <span>${rel.readTime}</span>
+            </div>
+            <h3 class="blog-title" style="font-size:1.1rem; line-height:1.4; margin-bottom:0.75rem;">
+              <a href="blog-details.html?post=${rel.id}" style="color:var(--text-main); text-decoration:none;">${rel.title}</a>
+            </h3>
+            <p class="blog-excerpt" style="font-size:0.88rem; color:var(--text-muted); line-height:1.5; margin-bottom:1.25rem; flex:1;">
+              ${rel.excerpt.slice(0, 115)}...
+            </p>
+            <a href="blog-details.html?post=${rel.id}" class="blog-link" style="color:var(--color-accent); font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+              <span>Read Briefing</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      `).join('');
+    }
+  }
+
+  // Expose dataset globally and auto-init on DOMContentLoaded
   window.AuraBlogData = blogArticles;
+  window.initBlogDetailPage = initBlogDetailPage;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlogDetailPage);
+  } else {
+    initBlogDetailPage();
+  }
 })();
