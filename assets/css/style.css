@@ -967,20 +967,30 @@ textarea.form-control {
   margin: 0;
 }
 
-/* Team Grid (Screenshot 2) */
+/* Team Grid (Screenshot 2 & Centered Alignments) */
 .team-grid-4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
 }
 
 .team-card {
   background: #FFFFFF;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
   text-align: center;
   transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .team-card:hover {
@@ -989,24 +999,38 @@ textarea.form-control {
 }
 
 .team-card-thumb {
-  height: 270px;
+  width: 100%;
+  height: 280px;
   overflow: hidden;
-  background: #E2E8F0;
+  background: #F1F5F9;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  object-position: center 15%;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .team-card:hover .team-card-thumb img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .team-card-body {
-  padding: 18px 16px;
+  padding: 20px 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .team-card-name {
@@ -1015,37 +1039,66 @@ textarea.form-control {
   font-weight: 700;
   color: var(--text-dark);
   margin: 0 0 4px;
+  text-align: center;
 }
 
 .team-card-role {
-  font-size: 11.5px;
+  font-size: 12px;
   color: var(--text-gray);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
+  text-align: center;
 }
 
 .team-card-socials {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
 }
 
 .team-card-socials a {
-  width: 26px;
-  height: 26px;
-  border-radius: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: #F1F5F9;
   color: #64748B;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 .team-card-socials a:hover {
-  background: var(--kreatista-green);
+  background: var(--garmen-magenta);
   color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+#team {
+  text-align: center;
+}
+
+#team .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#team .section-header {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+}
+
+#team .team-grid-4 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* Client Logos Strip (Screenshot 2) */
