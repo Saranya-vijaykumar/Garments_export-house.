@@ -292,6 +292,32 @@
 }
 
 /* Extra small screens (320px) */
+@media (max-width: 576px) {
+  .header-cta {
+    gap: 6px;
+  }
+  .nav-control-btn, .control-btn {
+    padding: 0 8px;
+    height: 34px;
+    font-size: 10px;
+  }
+  .btn-make-project {
+    padding: 8px 12px;
+    font-size: 10.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-control-btn .control-label,
+  .control-btn .control-label {
+    display: none;
+  }
+  .nav-control-btn, .control-btn {
+    padding: 0 8px;
+    min-width: 34px;
+  }
+}
+
 @media (max-width: 340px) {
   .brand-logo-sub {
     display: none;

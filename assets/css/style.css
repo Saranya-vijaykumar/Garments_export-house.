@@ -5,6 +5,7 @@
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+@import url('rtl.css');
 
 :root {
   /* Garmen Palette (Screenshots 1 & 3) */
@@ -21,12 +22,17 @@
   --kreatista-green-hover: #48735B;
   --kreatista-green-light: #EEF4F0;
   
-  /* Neutral Palette */
+  /* Neutral Palette (Light Mode Default) */
+  --bg-body: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-page: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --bg-alt: #F1F5F9;
+
   --text-dark: #1E293B;
   --text-gray: #64748B;
   --text-muted: #94A3B8;
   --border-light: #E2E8F0;
-  --bg-page: #F8F9FA;
   
   --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
@@ -294,11 +300,88 @@ img {
   cursor: pointer;
 }
 
-.btn-make-project:hover {
-  background: var(--garmen-pink-hover);
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-control-btn, .control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 13px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.nav-control-btn:hover, .control-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: var(--garmen-pink);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(216, 74, 112, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.nav-control-btn:focus-visible, .control-btn:focus-visible {
+  outline: 2px solid var(--garmen-pink);
+  outline-offset: 2px;
+}
+
+.nav-control-btn svg, .control-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.nav-control-btn:hover svg, .control-btn:hover svg {
+  transform: scale(1.12);
+}
+
+/* Light / Dark Mode Icon Switching */
+.theme-icon-sun, .theme-icon-light {
+  display: none;
+}
+.theme-icon-moon, .theme-icon-dark {
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .theme-icon-sun,
+[data-theme="dark"] .theme-icon-light {
+  display: inline-flex;
+  align-items: center;
+  color: #FCD34D;
+}
+[data-theme="dark"] .theme-icon-moon,
+[data-theme="dark"] .theme-icon-dark {
+  display: none;
+}
+
+[data-theme="dark"] .nav-control-btn.theme-toggle,
+[data-theme="dark"] .control-btn.theme-toggle {
+  background: rgba(252, 211, 77, 0.16);
+  border-color: rgba(252, 211, 77, 0.45);
+  color: #FEF08A;
+}
+
+[dir="rtl"] .nav-control-btn.rtl-toggle,
+[dir="rtl"] .control-btn.rtl-toggle {
+  background: rgba(91, 140, 113, 0.28);
+  border-color: var(--kreatista-green);
+  color: #A7F3D0;
 }
 
 .menu-toggle {
@@ -2197,4 +2280,377 @@ textarea.form-control {
     margin-top: 0.5rem;
   }
 }
+
+/* ==========================================================================
+   Comprehensive Dark Theme System (High Font Visibility & Contrast)
+   ========================================================================== */
+html[data-theme="dark"] {
+  --bg-body: #0F172A;
+  --bg-surface: #1E293B;
+  --bg-card: #1E293B;
+  --bg-page: #0B0F19;
+  --bg-alt: #162032;
+
+  --text-dark: #F8FAFC;
+  --text-gray: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border-light: #334155;
+
+  --garmen-navy: #0B0F19;
+  --garmen-card-navy: #161F36;
+  --garmen-footer-navy: #070A10;
+  --garmen-footer-deep: #030508;
+}
+
+html[data-theme="dark"] body {
+  background-color: #0F172A !important;
+  color: #E2E8F0 !important;
+}
+
+/* Headings: Brilliant White, High Contrast */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .brand-name,
+html[data-theme="dark"] .hero-title,
+html[data-theme="dark"] .page-title,
+html[data-theme="dark"] .title-bold {
+  color: #FFFFFF !important;
+}
+
+/* Paragraphs & Text: Light Slate (#CBD5E1) - 100% Legible & Sharp */
+html[data-theme="dark"] p,
+html[data-theme="dark"] .section-desc,
+html[data-theme="dark"] .lead,
+html[data-theme="dark"] .text-body,
+html[data-theme="dark"] .sub-title {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] strong,
+html[data-theme="dark"] b {
+  color: #FFFFFF !important;
+}
+
+/* Section Backgrounds */
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .page-section {
+  background-color: #0F172A !important;
+}
+
+html[data-theme="dark"] .section-alt,
+html[data-theme="dark"] .bg-page {
+  background-color: #0B0F19 !important;
+}
+
+/* Performance Stats Strip */
+html[data-theme="dark"] .stats-strip {
+  background: #111827 !important;
+  border-top: 1px solid #334155 !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .stats-col {
+  border-right-color: #334155 !important;
+}
+
+html[data-theme="dark"] .stats-number {
+  color: #6EE7B7 !important;
+}
+
+html[data-theme="dark"] .stats-label {
+  color: #CBD5E1 !important;
+}
+
+/* Garmen Cards */
+html[data-theme="dark"] .garmen-card {
+  border: 1px solid #334155 !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+html[data-theme="dark"] .garmen-card-body {
+  background-color: #161F36 !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .garmen-card-title {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .garmen-card-meta {
+  color: #94A3B8 !important;
+}
+
+/* Facility & Infrastructure Cards */
+html[data-theme="dark"] .facility-card {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme="dark"] .facility-card-title {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .facility-card-desc {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .facility-card-spec {
+  color: #FF7597 !important;
+}
+
+html[data-theme="dark"] .facility-card-thumb {
+  background: #0B0F19 !important;
+}
+
+/* Blog & Article Cards */
+html[data-theme="dark"] .blog-card,
+html[data-theme="dark"] .article-card {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme="dark"] .blog-card-title,
+html[data-theme="dark"] .article-card h2,
+html[data-theme="dark"] .article-card h3 {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .blog-card-desc,
+html[data-theme="dark"] .article-card p {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .blog-card-meta {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .blog-card-author,
+html[data-theme="dark"] .author-name {
+  color: #FFFFFF !important;
+}
+
+/* Blog Details View & Table of Contents */
+html[data-theme="dark"] .blog-details-body,
+html[data-theme="dark"] .detail-content,
+html[data-theme="dark"] .article-body {
+  color: #E2E8F0 !important;
+}
+
+html[data-theme="dark"] .toc-box,
+html[data-theme="dark"] .sidebar-card,
+html[data-theme="dark"] .author-card {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .toc-link {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .toc-link:hover,
+html[data-theme="dark"] .toc-link.active {
+  color: #FF7597 !important;
+}
+
+/* Product & Catalog Cards */
+html[data-theme="dark"] .catalog-card,
+html[data-theme="dark"] .product-card {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .catalog-card-title,
+html[data-theme="dark"] .product-title {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .catalog-card-desc,
+html[data-theme="dark"] .product-desc {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .spec-pill,
+html[data-theme="dark"] .catalog-card-meta span {
+  background: #0F172A !important;
+  color: #CBD5E1 !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Process & Steps */
+html[data-theme="dark"] .process-card,
+html[data-theme="dark"] .process-step {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .step-title {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .step-desc {
+  color: #CBD5E1 !important;
+}
+
+/* Pricing Tiers */
+html[data-theme="dark"] .pricing-card,
+html[data-theme="dark"] .pricing-tier {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .tier-title,
+html[data-theme="dark"] .tier-price {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .tier-features li {
+  color: #CBD5E1 !important;
+}
+
+/* Compliance Cards */
+html[data-theme="dark"] .compliance-card,
+html[data-theme="dark"] .cert-card {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .cert-title {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .cert-desc {
+  color: #CBD5E1 !important;
+}
+
+/* Forms & Inputs */
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+  border: 1px solid #475569 !important;
+}
+
+html[data-theme="dark"] .form-control:focus,
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] textarea:focus,
+html[data-theme="dark"] select:focus {
+  border-color: #D84A70 !important;
+  box-shadow: 0 0 0 3px rgba(216, 74, 112, 0.25) !important;
+}
+
+html[data-theme="dark"] .form-label {
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] .form-control::placeholder {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .project-form-wrap,
+html[data-theme="dark"] .contact-form-wrap {
+  background-color: #161F36 !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Dropdown Navigation Menus */
+html[data-theme="dark"] .dropdown-menu {
+  background: #1E293B !important;
+  border-top: 3px solid #D84A70 !important;
+  border-left: 1px solid #334155 !important;
+  border-right: 1px solid #334155 !important;
+  border-bottom: 1px solid #334155 !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+}
+
+html[data-theme="dark"] .dropdown-menu li a {
+  color: #F8FAFC !important;
+}
+
+html[data-theme="dark"] .dropdown-menu li a:hover,
+html[data-theme="dark"] .dropdown-menu li a.active {
+  background: rgba(216, 74, 112, 0.22) !important;
+  color: #FF7597 !important;
+}
+
+/* Filter Toolbars */
+html[data-theme="dark"] .filter-btn {
+  background: #1E293B !important;
+  color: #CBD5E1 !important;
+  border: 1px solid #475569 !important;
+}
+
+html[data-theme="dark"] .filter-btn:hover {
+  background: #2D3748 !important;
+  color: #FFFFFF !important;
+  border-color: #D84A70 !important;
+}
+
+html[data-theme="dark"] .filter-btn.active {
+  background: #D84A70 !important;
+  color: #FFFFFF !important;
+  border-color: #D84A70 !important;
+}
+
+/* Tables */
+html[data-theme="dark"] table {
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] table th {
+  background-color: #161F36 !important;
+  color: #FFFFFF !important;
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] table td {
+  background-color: transparent !important;
+  color: #CBD5E1 !important;
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Breadcrumbs */
+html[data-theme="dark"] .breadcrumbs,
+html[data-theme="dark"] .breadcrumb-link {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] .breadcrumbs .current,
+html[data-theme="dark"] .breadcrumb-current {
+  color: #FFFFFF !important;
+}
+
+/* Footer Section */
+html[data-theme="dark"] .site-footer {
+  background-color: #070A10 !important;
+  border-top: 1px solid #1E293B !important;
+}
+
+html[data-theme="dark"] .footer-heading {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="dark"] .footer-contact-link,
+html[data-theme="dark"] .footer-info-item {
+  color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] .footer-bottom {
+  background-color: #030508 !important;
+  color: #94A3B8 !important;
+  border-top: 1px solid #1E293B !important;
+}
+
 

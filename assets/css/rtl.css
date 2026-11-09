@@ -1,127 +1,176 @@
 /* ==========================================================================
-   AuraTextile Global - Garment Export House
+   Garmen Textile & Garment Export House
    RTL Stylesheet (rtl.css)
-   Full Right-to-Left Layout Support for Arabic, Hebrew & MENA Sourcing
+   Full Right-to-Left Layout Support for Arabic, Hebrew & Middle-East Markets
    ========================================================================== */
 
 [dir="rtl"] {
+  direction: rtl !important;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', -apple-system, sans-serif;
   direction: rtl;
   text-align: right;
 }
 
-/* Typography adjustment for Arabic/Hebrew script */
-[dir="rtl"] body {
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+/* Header & Navigation Flipping */
+[dir="rtl"] .header-inner,
+[dir="rtl"] .header-container {
+  flex-direction: row;
 }
 
-[dir="rtl"] .sub-title {
-  letter-spacing: normal;
+[dir="rtl"] .brand-logo {
+  flex-direction: row;
 }
 
-/* Buttons icon mirroring */
-[dir="rtl"] .btn svg {
-  transform: rotate(180deg);
-}
-
-[dir="rtl"] .btn:hover svg {
-  transform: rotate(180deg) translateX(4px);
-}
-
-/* Header & Navigation */
-[dir="rtl"] .main-nav {
-  margin-right: auto;
-  margin-left: 0;
+[dir="rtl"] .nav-menu {
+  flex-direction: row;
+  padding: 0;
+  gap: 24px;
 }
 
 [dir="rtl"] .dropdown-menu {
-  left: auto;
-  right: 0;
+  left: auto !important;
+  right: 0 !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .dropdown-menu li a {
   text-align: right;
+  padding: 10px 20px;
 }
 
-[dir="rtl"] .dropdown-link:hover {
-  padding-left: 1.25rem;
-  padding-right: 1.5rem;
+[dir="rtl"] .dropdown-menu li a:hover,
+[dir="rtl"] .dropdown-menu li a.active {
+  padding-left: 20px;
+  padding-right: 24px;
 }
 
-/* Card Badge */
-[dir="rtl"] .card-badge {
-  left: auto;
-  right: 1rem;
+[dir="rtl"] .header-cta,
+[dir="rtl"] .header-actions {
+  flex-direction: row;
+}
+
+/* Mirror arrows and icons */
+[dir="rtl"] .btn svg,
+[dir="rtl"] .btn-make-project svg,
+[dir="rtl"] .btn-white svg,
+[dir="rtl"] .arrow-icon,
+[dir="rtl"] .nav-link svg:not(.dropdown-arrow) {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .arrow-flip {
+  display: inline-block;
+  transform: scaleX(-1);
 }
 
 /* Breadcrumbs */
-[dir="rtl"] .breadcrumbs svg {
-  transform: rotate(180deg);
-}
-
-/* Stats Section border flipping */
-[dir="rtl"] .stat-item {
-  border-right: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-[dir="rtl"] .stat-item:last-child {
-  border-left: none;
-}
-
-/* Forms */
-[dir="rtl"] select.form-control {
-  background-position: left 1rem center;
-  padding-right: 1.15rem;
-  padding-left: 2.5rem;
-}
-
-[dir="rtl"] .form-label .required {
-  margin-left: 0;
-  margin-right: 2px;
-}
-
-/* Testimonial Author Info */
-[dir="rtl"] .author-info {
+[dir="rtl"] .breadcrumbs,
+[dir="rtl"] .breadcrumb-nav {
   text-align: right;
 }
 
-/* Modal close button */
-[dir="rtl"] .modal-close {
-  right: auto;
-  left: 1.25rem;
+[dir="rtl"] .breadcrumbs svg,
+[dir="rtl"] .breadcrumb-item svg {
+  transform: scaleX(-1);
 }
 
-/* Toast Notification */
+/* Stats Section Border Mirroring */
+[dir="rtl"] .stats-col {
+  border-right: none !important;
+  border-left: 1px solid var(--border-light) !important;
+}
+
+[dir="rtl"] .stats-col:last-child {
+  border-left: none !important;
+}
+
+[dir="rtl"] .stat-item {
+  border-right: none !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+[dir="rtl"] .stat-item:last-child {
+  border-left: none !important;
+}
+
+/* Forms & Select Input Direction */
+[dir="rtl"] .form-control,
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right !important;
+}
+
+[dir="rtl"] select.form-control {
+  background-position: left 1rem center !important;
+  padding-right: 1.15rem !important;
+  padding-left: 2.5rem !important;
+}
+
+[dir="rtl"] .form-label {
+  text-align: right;
+}
+
+/* Cards & Lists */
+[dir="rtl"] .garmen-card-body,
+[dir="rtl"] .facility-card-body,
+[dir="rtl"] .kreatista-card-body,
+[dir="rtl"] .blog-card-body,
+[dir="rtl"] .article-content,
+[dir="rtl"] .section-header {
+  text-align: right;
+}
+
+[dir="rtl"] .section-header.text-center {
+  text-align: center;
+}
+
+[dir="rtl"] .card-badge,
+[dir="rtl"] .badge-floating {
+  left: auto !important;
+  right: 1rem !important;
+}
+
+[dir="rtl"] .filter-toolbar {
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+/* Tables */
+[dir="rtl"] table th,
+[dir="rtl"] table td {
+  text-align: right !important;
+}
+
+/* Toast Notification & Modal */
 [dir="rtl"] .toast-container {
-  right: auto;
-  left: 2rem;
+  right: auto !important;
+  left: 2rem !important;
 }
 
-[dir="rtl"] .toast {
-  border-left: none;
-  border-right: 4px solid var(--color-accent);
+[dir="rtl"] .modal-close {
+  right: auto !important;
+  left: 1.25rem !important;
 }
 
-[dir="rtl"] .toast.success { border-right-color: var(--color-success); }
-[dir="rtl"] .toast.error { border-right-color: var(--color-error); }
-
-/* Back to Top button */
 [dir="rtl"] .back-to-top {
-  right: auto;
-  left: 2rem;
-}
-
-/* Mobile Navigation drawer */
-@media (max-width: 1024px) {
-  [dir="rtl"] .main-nav {
-    right: auto;
-    left: -100%;
-    transition: left var(--transition-normal);
-  }
-
-  [dir="rtl"] .main-nav.active {
-    left: 0;
-  }
+  right: auto !important;
+  left: 2rem !important;
 }
 
 /* Footer elements */
+[dir="rtl"] .footer-col,
+[dir="rtl"] .site-footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-info-item {
+  flex-direction: row;
+}
+
 [dir="rtl"] .footer-title::after {
   left: auto;
   right: 0;
