@@ -1103,8 +1103,9 @@ textarea.form-control {
 
 /* Client Logos Strip (Screenshot 2) */
 .clients-strip {
-  padding: 50px 0;
+  padding: 42px 0;
   border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   background: #FFFFFF;
 }
 
@@ -1118,25 +1119,50 @@ textarea.form-control {
 
 .clients-title {
   font-family: var(--font-heading);
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-dark);
+  white-space: nowrap;
 }
 
 .clients-logos {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px 32px;
   flex-wrap: wrap;
 }
 
 .client-logo-item {
-  font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 800;
-  color: #94A3B8;
-  letter-spacing: -0.02em;
-  opacity: 0.75;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.82;
+}
+
+.client-logo-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.client-logo-item img {
+  height: 32px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .clients-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .clients-logos {
+    justify-content: center;
+  }
 }
 
 /* ==========================================================================

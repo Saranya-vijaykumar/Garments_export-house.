@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 40" width="170" height="40">
+  <g transform="translate(6, 7)">
+    <rect x="0" y="0" width="36" height="26" fill="#00174F" rx="2"/>
+    <rect x="0" y="5" width="18" height="16" fill="#FFFFFF"/>
+    <rect x="18" y="5" width="18" height="16" fill="#CC0C2F"/>
+    <rect x="0" y="0" width="36" height="5" fill="#00174F"/>
+    <rect x="0" y="21" width="36" height="5" fill="#00174F"/>
+  </g>
+  <text x="50" y="20" font-family="'Inter', -apple-system, sans-serif" font-size="12" font-weight="800" fill="#1E293B" letter-spacing="1.5">TOMMY</text>
+  <text x="50" y="32" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#64748B" letter-spacing="2">HILFIGER</text>
+</svg>

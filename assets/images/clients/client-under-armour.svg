@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 40" width="155" height="40">
+  <g transform="translate(4, 7)">
+    <path d="M 14 2 C 8 2 3 6 3 13 C 3 17 6 20 10 22 C 6 24 3 27 3 31 C 3 38 8 42 14 42 C 21 42 26 38 26 31 C 26 27 23 24 19 22 C 23 20 26 17 26 13 C 26 6 21 2 14 2 Z M 14 7 C 17 7 20 9 20 13 C 20 16 17 19 14 19 C 11 19 8 16 8 13 C 8 9 11 7 14 7 Z M 14 24 C 17 24 20 27 20 30 C 20 34 17 37 14 37 C 11 37 8 34 8 30 C 8 27 11 24 14 24 Z" fill="#0F172A" transform="scale(0.6)"/>
+  </g>
+  <text x="32" y="19" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="900" fill="#0F172A" letter-spacing="1">UNDER</text>
+  <text x="32" y="30" font-family="'Inter', -apple-system, sans-serif" font-size="10" font-weight="900" fill="#0F172A" letter-spacing="1">ARMOUR</text>
+</svg>
