@@ -335,7 +335,7 @@
   // --------------------------------------------------------------------------
   // 3. Category Filter & Live Search with URL Query Param Support
   // --------------------------------------------------------------------------
-  function initProductFilters() {
+    function initProductFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const searchInput = document.querySelector('.product-search-input');
     const catalogContainer = document.querySelector('.product-catalog-grid');
@@ -344,6 +344,12 @@
 
     let activeCategory = 'all';
     let searchQuery = '';
+
+    // If container is empty, populate it from productsData
+    const existingCards = catalogContainer.querySelectorAll('.product-card');
+    if (!existingCards.length) {
+      renderProducts(productsData, catalogContainer);
+    }
 
     // Parse URL search parameters (e.g. ?category=mens or ?search=linen)
     const urlParams = new URLSearchParams(window.location.search);
@@ -365,20 +371,38 @@
       searchInput.value = searchParam;
     }
 
-    function filterAndRender() {
-      const filtered = productsData.filter((item) => {
-        const matchesCategory =
-          activeCategory === 'all' || item.category === activeCategory;
-        const matchesSearch =
-          item.title.toLowerCase().includes(searchQuery) ||
-          item.fabric.toLowerCase().includes(searchQuery) ||
-          item.categoryLabel.toLowerCase().includes(searchQuery) ||
-          item.description.toLowerCase().includes(searchQuery);
+    function applyFilter() {
+      const cards = catalogContainer.querySelectorAll('.product-card');
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const cat = card.getAttribute('data-category');
+        const text = card.textContent.toLowerCase();
+        const matchesCategory = (activeCategory === 'all' || cat === activeCategory);
+        const matchesSearch = (!searchQuery || text.includes(searchQuery));
 
-        return matchesCategory && matchesSearch;
+        if (matchesCategory && matchesSearch) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
       });
 
-      renderProducts(filtered, catalogContainer);
+      // No results message
+      let emptyMsg = catalogContainer.querySelector('.no-results-msg');
+      if (visibleCount === 0) {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement('div');
+          emptyMsg.className = 'no-results-msg col-span-full text-center';
+          emptyMsg.style.gridColumn = '1 / -1';
+          emptyMsg.style.padding = '4rem 1rem';
+          emptyMsg.innerHTML = '<h4 style="margin-bottom:0.5rem;">No matching garments found</h4><p class="text-muted">Try selecting a different category or clearing your search keywords.</p>';
+          catalogContainer.appendChild(emptyMsg);
+        }
+        emptyMsg.style.display = '';
+      } else if (emptyMsg) {
+        emptyMsg.style.display = 'none';
+      }
     }
 
     // Filter Buttons
@@ -388,7 +412,7 @@
         filterButtons.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         activeCategory = btn.getAttribute('data-filter') || 'all';
-        filterAndRender();
+        applyFilter();
       });
     });
 
@@ -396,120 +420,14 @@
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value.trim().toLowerCase();
-        filterAndRender();
+        applyFilter();
       });
     }
 
-    // Initial render
-    filterAndRender();
+    // Run initial filter on load
+    applyFilter();
   }
 
-  // --------------------------------------------------------------------------
-  // 4. Quick View Modal
-  // --------------------------------------------------------------------------
-  function attachQuickViewEvents(container) {
-    const quickBtns = container.querySelectorAll('.quick-view-btn');
-    const modal = document.querySelector('.product-modal');
-    if (!modal) return;
-
-    quickBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const prodId = btn.getAttribute('data-id');
-        const prod = productsData.find((p) => p.id === prodId);
-        if (prod) {
-          openQuickViewModal(prod, modal);
-        }
-      });
-    });
-  }
-
-  function openQuickViewModal(prod, modal) {
-    const modalBody = modal.querySelector('.modal-body');
-    if (!modalBody) return;
-
-    const swatchHtml = prod.colors
-      .map(
-        (c) =>
-          `<span style="width:24px; height:24px; border-radius:50%; background-color:${c}; border:2px solid #FFF; box-shadow:0 0 0 1px rgba(0,0,0,0.2); cursor:pointer;" title="${c}"></span>`
-      )
-      .join('');
-
-    modalBody.innerHTML = `
-      <div class="grid grid-2" style="gap: 2rem; align-items: center;">
-        <div style="border-radius: var(--radius-md); overflow: hidden; max-height: 420px;">
-          <img src="${prod.image}" alt="${prod.title}" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div>
-          <span class="product-category">${prod.categoryLabel} / ${prod.type}</span>
-          <h3 style="margin-block: 0.35rem 0.75rem;">${prod.title}</h3>
-          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.25rem;">${prod.description}</p>
-          
-          <div style="background-color: var(--bg-surface-alt); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.4rem; font-size: 0.9rem;">
-              <strong>Fabric Specification:</strong> <span>${prod.fabric}</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.4rem; font-size: 0.9rem;">
-              <strong>Fabric Weight:</strong> <span>${prod.gsm}</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.4rem; font-size: 0.9rem;">
-              <strong>Minimum Order (MOQ):</strong> <span>${prod.moq}</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; font-size: 0.9rem;">
-              <strong>Production Lead Time:</strong> <span>${prod.leadTime}</span>
-            </div>
-          </div>
-
-          <div style="margin-bottom: 1.5rem;">
-            <strong style="font-size:0.85rem; display:block; margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Available Base Shades:</strong>
-            <div style="display:flex; gap:0.5rem;">${swatchHtml}</div>
-          </div>
-
-          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-            <a href="contact.html?product=${encodeURIComponent(prod.title)}" class="btn btn-primary btn-sm">
-              Inquire Bulk Order
-            </a>
-            <a href="product-details.html?id=${prod.id}" class="btn btn-secondary btn-sm">
-              Full Tech Pack Specs
-            </a>
-          </div>
-        </div>
-      </div>
-    `;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // Bind Close buttons
-    const closeBtn = modal.querySelector('.modal-close');
-    if (closeBtn) {
-      closeBtn.onclick = () => closeQuickViewModal(modal);
-    }
-
-    modal.onclick = (e) => {
-      if (e.target === modal) {
-        closeQuickViewModal(modal);
-      }
-    };
-  }
-
-  function closeQuickViewModal(modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      const activeModal = document.querySelector('.modal.active');
-      if (activeModal) {
-        closeQuickViewModal(activeModal);
-      }
-    }
-  });
-
-  // --------------------------------------------------------------------------
-  // 5. Individual Product Details Page Controller (product-details.html)
-  // --------------------------------------------------------------------------
   function initProductDetailPage() {
     const detailContainer = document.querySelector('.product-deep-dive-section');
     if (!detailContainer) return;
