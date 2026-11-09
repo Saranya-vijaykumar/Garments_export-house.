@@ -1,3 +1,4 @@
+.topbar { display: none !important; }
 .mobile-drawer { display: none !important; }
 /* ==========================================================================
    Garmen & Kreatista — Exact Visual System Matching User Reference Screenshots
@@ -1701,4 +1702,9 @@ textarea.form-control {
   color: #64748B;
   line-height: 1.6;
   margin: 0;
+}
+
+/* Ensure any topbar elements remain completely hidden */
+.topbar, .topbar-contact, .topbar-contact-item {
+  display: none !important;
 }
