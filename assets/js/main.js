@@ -6,24 +6,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // 1. Mobile Menu Drawer Toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileDrawer = document.querySelector('.mobile-drawer');
-
-  if (menuToggle && mobileDrawer) {
-    menuToggle.addEventListener('click', function () {
-      mobileDrawer.classList.toggle('open');
-      const isOpen = mobileDrawer.classList.contains('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!mobileDrawer.contains(e.target) && !menuToggle.contains(e.target)) {
-        mobileDrawer.classList.remove('open');
-      }
-    });
-  }
-
   // 2. Active Navbar State Highlighter
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(function (link) {
