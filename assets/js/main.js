@@ -134,6 +134,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 5. Blog Article Modal Reader
   const articleData = {
+    
+    'csddd': {
+      title: 'EU Ecodesign & CSDDD: What Global Apparel Brands Must Know in 2026',
+      date: '12 February 2026',
+      author: 'Hector Furman, Sustainable Sourcing Lead',
+      readTime: '8 min read',
+      img: 'assets/images/blog-csddd.jpg',
+      content: '<p>The European Union Corporate Sustainability Due Diligence Directive (CSDDD) and Digital Product Passport (DPP) regulations impose mandatory full-tier traceability across garment manufacturing supply chains.</p><h4>Key Compliance Pillars</h4><p>1. <strong>Digital Product Passport (DPP):</strong> Every exported garment must carry an encrypted QR identifier cataloging fiber origin, chemistry declarations, and carbon footprint metrics.</p><p>2. <strong>Durability & Recyclability:</strong> Enforced minimum tensile thresholds and restriction of mixed fiber blends that hinder automated sorting in municipal textile recycling plants.</p><p>3. <strong>Living Wage & Labor Audits:</strong> Independent third-party validation that factory tier-1 and tier-2 partners comply with ILO fundamental conventions.</p>'
+    },
+    'dyeing': {
+      title: 'Low-Liquor Jet Dyeing: Cutting Water Footprint by 68% in Tirupur',
+      date: '14 February 2026',
+      author: 'Claudia Stephens, Textile Quality Master',
+      readTime: '6 min read',
+      img: 'assets/images/blog-dyeing-tech.jpg',
+      content: '<p>Traditional exhaust batch dyeing consumes between 80 to 120 liters of fresh water per kilogram of cotton fabric. In our modern Tirupur wet processing facility, advanced airflow jet dyeing machines reduce the liquor ratio to an unprecedented 1:3.5.</p><h4>Process Innovations</h4><p>• <strong>Aerodynamic Air-Jet Circulation:</strong> High-velocity steam and compressed air propel fabric rope without requiring hydrostatic liquor immersion.</p><p>• <strong>Automated Salt & Alkali Dosing:</strong> Microprocessor-controlled pH curves ensure 98.5% dyestuff fixation, drastically minimizing wash-off rinse cycles.</p><p>• <strong>Zero Liquid Discharge (ZLD) Integration:</strong> 98% of process effluent is recovered through biological oxidation, ultra-filtration, and multi-stage reverse osmosis.</p>'
+    },
+    'nearshoring': {
+      title: 'Nearshoring vs Strategic Asian Sourcing: Total Landed Cost Analysis',
+      date: '15 February 2026',
+      author: 'Executive Export Board',
+      readTime: '7 min read',
+      img: 'assets/images/blog-nearshoring.jpg',
+      content: '<p>While nearshoring to Turkey, Portugal, or Central America offers shorter transit times, a rigorous Total Landed Cost (TLC) evaluation demonstrates why integrated Indian textile ecosystems remain indispensable for global fashion brands.</p><h4>Comparative Advantages</h4><p>1. <strong>Raw Material Integration:</strong> India is the world largest producer of cotton, enabling direct seed-to-hanger manufacturing with zero fabric import tariffs.</p><p>2. <strong>Scale & Flexibility:</strong> Balancing multi-million garment seasonal orders with rapid 500-piece capsule turnarounds under a single roof.</p><p>3. <strong>Renewable Energy Adoption:</strong> Over 75% of our spinning and knitting operations are powered by dedicated rooftop solar and wind turbine grids.</p>'
+    },
     'seams': {
       title: 'Various Types and Classes of Seams Used in Sewing',
       date: '10 February 2026',
