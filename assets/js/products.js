@@ -428,13 +428,110 @@
     applyFilter();
   }
 
+  const materialsData = {
+    cotton: {
+      id: 'mat-cotton',
+      title: '100% GOTS Organic Combed Cotton Fabric',
+      category: 'materials',
+      categoryLabel: 'Sustainable Raw Materials',
+      type: 'Single & Double Jersey / Combed Piqué',
+      gsm: '140 – 280 GSM',
+      fabric: '100% GOTS Organic Cotton (BCI Certified)',
+      moq: '500 Kgs / Color',
+      leadTime: '25 – 35 Days',
+      colors: ['#F5F2EB', '#E0DCD3', '#2B3A42', '#1B242A', '#C89659'],
+      image: 'assets/images/garmen-fabric-cotton.jpg',
+      description: 'Export-grade 100% GOTS-certified organic combed cotton fabric with BCI sustainability credentials. Mercerized finish, anti-pilling bio-wash treatment, and OEKO-TEX Standard 100 Class 1 safety for luxury apparel collections.',
+      price: '$5.20 – $7.50'
+    },
+    wool: {
+      id: 'mat-wool',
+      title: 'Fine Merino & Recycled Wool Knitted Blends',
+      category: 'materials',
+      categoryLabel: 'Luxury Thermal Materials',
+      type: 'Merino Rib / Cable Knit / Interlock',
+      gsm: '260 – 380 GSM',
+      fabric: '80% Fine Australian Merino Wool / 20% Recycled Cashmere',
+      moq: '300 Kgs / Blend',
+      leadTime: '35 – 45 Days',
+      colors: ['#C5BAA8', '#20272D', '#7A2021', '#4A5B68'],
+      image: 'assets/images/garmen-fabric-wool.jpg',
+      description: 'Premium Australian fine Merino wool blended with post-industrial recycled wool yarns. Superior thermal retention, natural breathability, ultra-soft itch-free handfeel, and shrinkage-controlled pre-steamed finish.',
+      price: '$18.50 – $26.00'
+    },
+    linen: {
+      id: 'mat-linen',
+      title: '100% European Flax Certified Pure Linen',
+      category: 'materials',
+      categoryLabel: 'Eco-Resort Materials',
+      type: 'Woven Slub / Chambray / Linen Jersey',
+      gsm: '160 – 240 GSM',
+      fabric: '100% Certified European Flax Linen & Cotton-Linen Slub',
+      moq: '400 Kgs / Color',
+      leadTime: '30 – 40 Days',
+      colors: ['#E8DFD1', '#8C9A86', '#C29B38', '#142B3B'],
+      image: 'assets/images/garmen-fabric-linen.jpg',
+      description: 'Cultivated in Western Europe and woven on high-speed rapier looms. Pre-shrunk with enzyme-softened tumbling for relaxed summer draping, vintage slub textures, and high tensile endurance.',
+      price: '$12.80 – $16.50'
+    },
+    georgette: {
+      id: 'mat-georgette',
+      title: 'Sheer Crepe Georgette & Chiffon Blends',
+      category: 'materials',
+      categoryLabel: 'Occasion & Flow Materials',
+      type: 'Crepe-Twist Chiffon / Georgette',
+      gsm: '80 – 130 GSM',
+      fabric: '100% Recycled Poly-Georgette & Silk-Feel Crepe (GRS Certified)',
+      moq: '350 Kgs / Print',
+      leadTime: '25 – 35 Days',
+      colors: ['#D8A4B8', '#9BAEC0', '#B99A62', '#142B3B'],
+      image: 'assets/images/garmen-fabric-georgette.jpg',
+      description: 'High-twist crepe sheer georgette and chiffon textiles engineered for airy flow, feminine dresses, and luxury blouses. Compatible with high-resolution digital reactive printing.',
+      price: '$4.80 – $6.90'
+    },
+    denim: {
+      id: 'mat-denim',
+      title: 'Ring-Spun Indigo & Selvedge Denim Fabric',
+      category: 'materials',
+      categoryLabel: 'Denim & Heavy Twill',
+      type: '3/1 Right-Hand Twill / Selvedge Line',
+      gsm: '9.5 – 14.5 oz (320 – 490 GSM)',
+      fabric: '100% BCI Cotton & 98/2 Cotton-Spandex Ring-Spun Indigo Denim',
+      moq: '1,000 Yards',
+      leadTime: '30 – 45 Days',
+      colors: ['#1A2A44', '#0F1826', '#3D4F6E', '#A6B8CE'],
+      image: 'assets/images/garmen-fabric-denim.jpg',
+      description: 'Pure indigo rope-dyed ring-spun denim and classic selvedge with authentic shuttle-loom red ticker. Ozone fading ready and laser-whiskering compatible for ethical wash processes.',
+      price: '$3.90 – $5.80'
+    },
+    leather: {
+      id: 'mat-leather',
+      title: 'LWG Certified Ethical Leather & Vegan Hides',
+      category: 'materials',
+      categoryLabel: 'Apparel Trims & Outerwear',
+      type: 'Full-Grain Lambskin / Bio Vegan Leather',
+      gsm: '0.8 – 1.2 mm Gauge',
+      fabric: 'LWG Gold Rated Lambskin, Suede, and Plant-Based Bio-Leather',
+      moq: '200 Sq.Ft / Color',
+      leadTime: '25 – 35 Days',
+      colors: ['#8B5A2B', '#3B2412', '#1C1C1C', '#C4A482'],
+      image: 'assets/images/garmen-fabric-leather.jpg',
+      description: 'Leather Working Group Gold-rated chrome-free tanned leather and certified plant-based vegan leather. Buttery soft drape tailored for jacket panels, collars, pocket welts, and branded apparel patches.',
+      price: '$3.50 – $5.20'
+    }
+  };
+
   function initProductDetailPage() {
     const detailContainer = document.querySelector('.product-deep-dive-section');
     if (!detailContainer) return;
 
     const urlParams = new URLSearchParams(window.location.search);
+    const materialKey = (urlParams.get('material') || urlParams.get('fabric') || '').toLowerCase();
     const prodId = urlParams.get('id') || 'prod-01';
-    const prod = productsData.find((p) => p.id === prodId) || productsData[0];
+    
+    const prod = (materialKey && materialsData[materialKey]) 
+      ? materialsData[materialKey] 
+      : (productsData.find((p) => p.id === prodId) || productsData[0]);
 
     // 1. Update Document Title
     document.title = `${prod.title} | Technical Specification | GlobalStitch`;
@@ -448,7 +545,7 @@
     // 3. Style Code & Category Subtitle
     const styleSubtitle = document.querySelector('#productStyleSubtitle');
     if (styleSubtitle) {
-      styleSubtitle.innerHTML = `${prod.categoryLabel} &bull; Style #${prod.id.toUpperCase()}`;
+      styleSubtitle.innerHTML = `${prod.categoryLabel} &bull; Code #${prod.id.toUpperCase()}`;
     }
 
     // 4. Main Title & Lead Description
@@ -465,16 +562,19 @@
     // 5. Price & MOQ Details
     const priceDisplay = document.querySelector('#productDetailPrice');
     if (priceDisplay) {
-      let estPrice = '$4.95 – $6.40';
-      if (prod.category === 'kids') estPrice = '$2.90 – $4.20';
-      else if (prod.category === 'sportswear') estPrice = '$6.20 – $8.80';
-      else if (prod.category === 'workwear') estPrice = '$14.50 – $21.00';
-      else if (prod.category === 'custom') estPrice = '$12.00 – $24.00';
-      else if (prod.title.includes('Hoodie') || prod.title.includes('Sweatshirt')) estPrice = '$9.50 – $13.80';
-      else if (prod.title.includes('Dress')) estPrice = '$7.90 – $11.50';
-      else if (prod.title.includes('Shirt')) estPrice = '$6.50 – $8.90';
+      let estPrice = prod.price || '$4.95 – $6.40';
+      if (!prod.price) {
+        if (prod.category === 'kids') estPrice = '$2.90 – $4.20';
+        else if (prod.category === 'sportswear') estPrice = '$6.20 – $8.80';
+        else if (prod.category === 'workwear') estPrice = '$14.50 – $21.00';
+        else if (prod.category === 'custom') estPrice = '$12.00 – $24.00';
+        else if (prod.title.includes('Hoodie') || prod.title.includes('Sweatshirt')) estPrice = '$9.50 – $13.80';
+        else if (prod.title.includes('Dress')) estPrice = '$7.90 – $11.50';
+        else if (prod.title.includes('Shirt')) estPrice = '$6.50 – $8.90';
+      }
 
-      priceDisplay.innerHTML = `${estPrice} <span style="font-size:0.9rem; font-family:var(--font-body); font-weight:400; color:var(--text-muted);">/ Unit</span>`;
+      const unitLabel = prod.id.includes('leather') ? '/ Sq.Ft' : prod.id.includes('denim') ? '/ Yard' : prod.id.startsWith('mat-') ? '/ Kg' : '/ Unit';
+      priceDisplay.innerHTML = `${estPrice} <span style="font-size:0.9rem; font-family:var(--font-body); font-weight:400; color:var(--text-muted);">${unitLabel}</span>`;
     }
 
     const moqText = document.querySelector('#productDetailMoqText');
