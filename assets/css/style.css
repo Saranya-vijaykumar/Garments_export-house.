@@ -1,48 +1,36 @@
 /* ==========================================================================
-   Garmen — Textile & Garment Industry
-   Pixel-accurate styling matching User Reference Designs (Images 1, 2, 3)
+   Garmen & Kreatista — Exact Visual System Matching User Reference Screenshots
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Garmen Reference Color Tokens */
-  --garmen-navy: #111A2E;
-  --garmen-navy-dark: #0A101D;
-  --garmen-navy-card: #16213E;
-  --garmen-navy-light: #1E2D4A;
+  /* Garmen Palette (Screenshots 1 & 3) */
+  --garmen-navy: #1E2238;          /* Header background */
+  --garmen-card-navy: #1E2746;     /* Card info box background */
+  --garmen-footer-navy: #13192B;   /* Footer background */
+  --garmen-footer-deep: #0D111E;   /* Sub-footer bottom bar */
+  --garmen-pink: #D84A70;          /* Signature rose magenta accent */
+  --garmen-pink-hover: #BF3A60;    /* Button hover */
+  --garmen-pink-light: #FDEEF2;    /* Soft pink icon background */
   
-  --garmen-magenta: #D84A70;
-  --garmen-magenta-hover: #BF3A60;
-  --garmen-magenta-light: #FDEEF2;
+  /* Kreatista Palette (Screenshot 2) */
+  --kreatista-green: #5B8C71;      /* Sage green buttons & numbers */
+  --kreatista-green-hover: #48735B;
+  --kreatista-green-light: #EEF4F0;
   
-  --garmen-gold: #C5A880;
-  --garmen-gold-light: #EADBC8;
+  /* Neutral Palette */
+  --text-dark: #1E293B;
+  --text-gray: #64748B;
+  --text-muted: #94A3B8;
+  --border-light: #E2E8F0;
+  --bg-page: #F8F9FA;
   
-  --bg-body: #FFFFFF;
-  --bg-surface: #F8F9FA;
-  --bg-surface-alt: #F1F4F9;
-  
-  --text-main: #1E293B;
-  --text-muted: #64748B;
-  --text-light: #94A3B8;
-  
-  --border-color: #E2E8F0;
-  --border-dark: rgba(255, 255, 255, 0.12);
-  
-  --font-heading: 'Plus Jakarta Sans', 'DM Sans', -apple-system, sans-serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
-  
-  --shadow-sm: 0 2px 8px rgba(17, 26, 46, 0.06);
-  --shadow-md: 0 10px 30px rgba(17, 26, 46, 0.08);
-  --shadow-lg: 0 20px 50px rgba(17, 26, 46, 0.12);
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
 }
 
-/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -54,10 +42,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-body);
-  color: var(--text-main);
+  background-color: #FFFFFF;
+  color: var(--text-dark);
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -76,20 +64,20 @@ img {
 
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* ==========================================================================
-   Top Utility Bar (matching Image 1 & 3)
+   1. Topbar (Screenshot 1 & 3: White bar with gray text & pink social icons)
    ========================================================================== */
 .topbar {
-  background-color: var(--garmen-navy-dark);
-  color: #CBD5E1;
-  font-size: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 0;
+  background-color: #FFFFFF;
+  color: #64748B;
+  font-size: 12.5px;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 10px 0;
 }
 
 .topbar .container {
@@ -111,23 +99,24 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #94A3B8;
+  color: #64748B;
+  font-size: 12.5px;
 }
 
 .topbar-info a:hover {
-  color: var(--garmen-magenta);
+  color: var(--garmen-pink);
 }
 
 .topbar-info svg {
   width: 14px;
   height: 14px;
-  color: var(--garmen-magenta);
+  color: #94A3B8;
 }
 
 .topbar-social {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .topbar-social a {
@@ -137,36 +126,36 @@ img {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  color: #CBD5E1;
-  transition: background 0.3s, color 0.3s;
+  background: var(--garmen-pink);
+  color: #FFFFFF;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .topbar-social a:hover {
-  background: var(--garmen-magenta);
-  color: #FFFFFF;
+  background: var(--garmen-pink-hover);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Sticky Navigation Bar with Dropdowns & Magenta CTA
+   2. Site Header (Dark Navy #1E2238 with Garmen Logo & Make Project Button)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background-color: var(--garmen-navy);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 84px;
+  height: 76px;
 }
 
-/* Brand Logo (Pink lattice icon + Garmen) */
+/* Brand Logo: Pink Woven Lattice + White Garmen */
 .brand-logo {
   display: flex;
   align-items: center;
@@ -177,11 +166,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--garmen-magenta-light);
-  border-radius: var(--radius-sm);
-  color: var(--garmen-magenta);
+  width: 38px;
+  height: 38px;
+  color: var(--garmen-pink);
 }
 
 .brand-text {
@@ -193,24 +180,24 @@ img {
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 800;
-  color: var(--garmen-navy);
-  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
 .brand-sub {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
 }
 
-/* Nav Menu & Dropdowns */
+/* Main Navigation */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -222,23 +209,24 @@ img {
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
-  color: var(--garmen-navy);
+  color: #FFFFFF;
   padding: 10px 0;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
+  transition: color 0.2s;
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--garmen-magenta);
+  color: var(--garmen-pink);
 }
 
 .nav-link svg {
-  width: 12px;
-  height: 12px;
-  transition: transform 0.25s ease;
+  width: 11px;
+  height: 11px;
+  transition: transform 0.25s;
 }
 
 .nav-item:hover .nav-link svg {
@@ -252,16 +240,16 @@ img {
   left: 0;
   min-width: 220px;
   background: #FFFFFF;
-  box-shadow: 0 15px 35px rgba(17, 26, 46, 0.12);
-  border-radius: var(--radius-sm);
-  padding: 10px 0;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  padding: 8px 0;
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateY(10px);
+  transition: all 0.25s ease;
   z-index: 100;
-  border-top: 3px solid var(--garmen-magenta);
+  border-top: 3px solid var(--garmen-pink);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -273,115 +261,66 @@ img {
 .dropdown-menu li a {
   display: block;
   padding: 10px 20px;
-  font-size: 13.5px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--garmen-navy);
 }
 
 .dropdown-menu li a:hover,
 .dropdown-menu li a.active {
-  background: var(--garmen-magenta-light);
-  color: var(--garmen-magenta);
+  background: var(--garmen-pink-light);
+  color: var(--garmen-pink);
   padding-left: 24px;
 }
 
-/* Action Button ("MAKE PROJECT") */
+/* Make Project Button (Screenshots 1 & 3) */
 .btn-make-project {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
-  background: var(--garmen-magenta);
+  padding: 10px 20px;
+  background: var(--garmen-pink);
   color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 15px rgba(216, 74, 112, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid var(--garmen-magenta);
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  border: 1px solid var(--garmen-pink);
   cursor: pointer;
 }
 
 .btn-make-project:hover {
-  background: var(--garmen-magenta-hover);
+  background: var(--garmen-pink-hover);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(216, 74, 112, 0.4);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  background: transparent;
-  color: var(--garmen-navy);
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--garmen-navy);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  background: var(--garmen-navy);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
-.btn-white {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 26px;
-  background: #FFFFFF;
-  color: var(--garmen-navy);
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: var(--radius-sm);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.btn-white:hover {
-  background: var(--garmen-magenta);
-  color: #FFFFFF;
-  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(216, 74, 112, 0.4);
 }
 
 .menu-toggle {
   display: none;
   background: none;
   border: 0;
-  color: var(--garmen-navy);
-  font-size: 26px;
+  color: #FFFFFF;
+  font-size: 24px;
   cursor: pointer;
 }
 
 /* ==========================================================================
-   Page Hero Banner (matching Images 1 & 3: Industrial Sewing Close-up)
+   3. Page Hero with Yellow Highlight Box (Screenshots 1 & 3)
    ========================================================================== */
-.page-hero {
+.hero-banner {
   position: relative;
-  min-height: 340px;
+  min-height: 280px;
   display: flex;
   align-items: center;
-  color: #FFFFFF;
-  background-color: var(--garmen-navy-dark);
+  background-color: #111A2E;
   overflow: hidden;
 }
 
-.page-hero-img {
+.hero-banner-bg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -390,113 +329,119 @@ img {
   filter: brightness(0.65);
 }
 
-.page-hero-overlay {
+.hero-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(17, 26, 46, 0.9) 0%, rgba(17, 26, 46, 0.4) 100%);
+  background: rgba(17, 26, 46, 0.45);
 }
 
-.page-hero-content {
+.hero-banner-content {
   position: relative;
   z-index: 2;
-  padding: 60px 0;
+  padding: 50px 0;
 }
 
-.page-hero h1 {
+/* Translucent Yellow Badge on Left (matching Screenshots 1 & 3) */
+.hero-yellow-badge {
+  background: rgba(234, 179, 8, 0.2);
+  border-left: 4px solid #EAB308;
+  padding: 18px 28px;
+  display: inline-block;
+  border-radius: 0 4px 4px 0;
+  backdrop-filter: blur(2px);
+}
+
+.hero-yellow-badge h1 {
   font-family: var(--font-heading);
-  font-size: clamp(38px, 5vw, 54px);
+  font-size: clamp(34px, 4vw, 44px);
   font-weight: 800;
-  margin: 0 0 12px;
-  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
 }
 
-.page-hero-breadcrumbs {
+.hero-yellow-badge .breadcrumbs {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.page-hero-breadcrumbs a {
   color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.page-hero-breadcrumbs a:hover {
-  color: var(--garmen-magenta);
+.hero-yellow-badge .breadcrumbs a {
+  color: #FFFFFF;
+  text-decoration: underline;
 }
 
 /* ==========================================================================
-   Section Headers (with Magenta pill/label)
+   4. Section Headers (Pill + Big Title + Subtitle)
    ========================================================================== */
 .section {
-  padding: 90px 0;
+  padding: 85px 0;
 }
 
 .section-alt {
-  background-color: var(--bg-surface);
+  background-color: var(--bg-page);
 }
 
 .section-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 55px;
+  margin: 0 auto 50px;
 }
 
 .section-label {
   display: inline-block;
-  color: var(--garmen-magenta);
+  color: var(--garmen-pink);
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(30px, 4vw, 42px);
+  font-size: clamp(28px, 3.5vw, 38px);
   font-weight: 800;
-  color: var(--garmen-navy);
-  margin: 0 0 16px;
+  color: var(--text-dark);
+  margin: 0 0 14px;
   letter-spacing: -0.02em;
-  line-height: 1.2;
 }
 
 .section-desc {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.75;
+  font-size: 14.5px;
+  color: var(--text-gray);
+  line-height: 1.7;
   margin: 0;
 }
 
 /* ==========================================================================
-   Garmen Cards Grid (matching Image 1 & Image 3)
-   Card with photo + Dark Navy Info Box (#16213E)
+   5. Garmen Cards (Screenshots 1 & 3: Top Image + Dark Navy Bottom Box)
    ========================================================================== */
 .cards-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 26px;
 }
 
 .garmen-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .garmen-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .garmen-card-thumb {
-  height: 240px;
+  height: 220px;
   overflow: hidden;
   position: relative;
   background: #CBD5E1;
@@ -506,18 +451,18 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 0.6s ease;
 }
 
 .garmen-card:hover .garmen-card-thumb img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-/* Dark Navy Card Body (#16213E) */
+/* Dark Navy Box (#1E2746) */
 .garmen-card-body {
-  background-color: var(--garmen-navy-card);
+  background-color: var(--garmen-card-navy);
   color: #FFFFFF;
-  padding: 24px 26px;
+  padding: 22px 24px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -526,66 +471,65 @@ img {
 
 .garmen-card-title {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 16.5px;
   font-weight: 700;
   color: #FFFFFF;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   line-height: 1.35;
 }
 
 .garmen-card-meta {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 12px;
+  gap: 14px;
+  font-size: 11.5px;
   color: #94A3B8;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .garmen-card-meta span {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .garmen-card-meta svg {
   width: 13px;
   height: 13px;
-  color: var(--garmen-magenta);
 }
 
 .garmen-card-desc {
-  font-size: 13.5px;
+  font-size: 13px;
   color: #94A3B8;
-  line-height: 1.65;
-  margin: 0 0 18px;
+  line-height: 1.6;
+  margin: 0 0 16px;
 }
 
 .garmen-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--garmen-pink);
   font-family: var(--font-heading);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--garmen-magenta);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .garmen-card-link:hover {
   color: #FFFFFF;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* ==========================================================================
-   Full-Width Consultation CTA Banner (matching Images 1 & 3)
+   6. Consultation Banner (Screenshots 1 & 3: Two Tailors Consulting)
    ========================================================================== */
 .consult-banner {
   position: relative;
-  background-color: var(--garmen-navy-dark);
+  background-color: #111A2E;
   color: #FFFFFF;
-  padding: 95px 0;
+  padding: 90px 0;
   text-align: center;
   overflow: hidden;
 }
@@ -602,153 +546,179 @@ img {
 .consult-banner-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(17, 26, 46, 0.78);
+  background: rgba(17, 26, 46, 0.75);
 }
 
 .consult-banner-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
 .consult-banner h2 {
   font-family: var(--font-heading);
-  font-size: clamp(32px, 4.5vw, 48px);
+  font-size: clamp(30px, 4vw, 44px);
   font-weight: 800;
-  margin: 0 0 16px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  margin: 0 0 14px;
+  line-height: 1.25;
 }
 
 .consult-banner p {
-  font-size: 16px;
+  font-size: 15px;
   color: #CBD5E1;
-  max-width: 620px;
-  margin: 0 auto 32px;
+  max-width: 600px;
+  margin: 0 auto 28px;
 }
 
 /* ==========================================================================
-   "PROJECT FORM / Start The Project" Section (matching Image 3)
+   7. Start The Project Form (Screenshot 3)
    ========================================================================== */
 .project-form-section {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .project-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 50px;
   align-items: center;
 }
 
-.project-form-card {
-  background: #FFFFFF;
-}
-
 .project-form-card .section-label {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .project-form-card h2 {
   font-family: var(--font-heading);
-  font-size: clamp(30px, 3.5vw, 42px);
+  font-size: clamp(28px, 3.5vw, 38px);
   font-weight: 800;
-  color: var(--garmen-navy);
-  margin: 0 0 14px;
+  color: var(--text-dark);
+  margin: 0 0 12px;
 }
 
 .project-form-card p {
-  color: var(--text-muted);
-  font-size: 14.5px;
-  margin-bottom: 28px;
+  color: var(--text-gray);
+  font-size: 14px;
+  margin-bottom: 24px;
 }
 
 .form-group-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .form-control {
   width: 100%;
-  padding: 14px 18px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
   font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--text-main);
-  background: var(--bg-surface);
-  transition: all 0.25s ease;
+  font-size: 13.5px;
+  color: var(--text-dark);
+  background: #FFFFFF;
+  transition: border-color 0.25s, box-shadow 0.25s;
   outline: 0;
 }
 
 .form-control:focus {
-  border-color: var(--garmen-magenta);
-  background: #FFFFFF;
+  border-color: var(--garmen-pink);
   box-shadow: 0 0 0 3px rgba(216, 74, 112, 0.15);
 }
 
 textarea.form-control {
   resize: vertical;
-  min-height: 120px;
+  min-height: 110px;
 }
 
-/* Right Column: Factory Image with Floating Badge */
+/* Right Media: Photo with Floating 5,000+ Completed Project Badge */
 .project-form-media {
   position: relative;
 }
 
 .project-media-img {
   width: 100%;
-  height: 480px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
+  height: 460px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Floating Badge: 5,000+ Completed Projects */
 .floating-badge {
   position: absolute;
-  top: -24px;
-  right: -24px;
-  background-color: var(--garmen-navy);
+  top: -18px;
+  right: -18px;
+  background-color: var(--garmen-card-navy);
   color: #FFFFFF;
-  padding: 24px 32px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 28px;
+  border-radius: 6px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   text-align: center;
+  z-index: 5;
 }
 
 .floating-badge-number {
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 800;
   color: #FFFFFF;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .floating-badge-label {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
   color: #94A3B8;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 /* ==========================================================================
-   Kreatista / About Section Elements (matching Image 2)
+   8. Kreatista About Us Modules (Screenshot 2)
    ========================================================================== */
+.about-hero-kreatista {
+  background: #FCFBF7;
+  padding: 40px 0 0;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-hero-left h1 {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 8px;
+}
+
+.about-hero-left .breadcrumbs {
+  font-size: 12px;
+  color: var(--text-gray);
+  letter-spacing: 0.1em;
+}
+
+.about-hero-right img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
 .about-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 50px;
   align-items: center;
 }
 
@@ -758,80 +728,105 @@ textarea.form-control {
 
 .about-img-main {
   width: 100%;
-  height: 520px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Quote card overlay (Image 2) */
+/* Quote card overlay (Screenshot 2) */
 .quote-overlay-card {
   position: absolute;
-  top: 40px;
-  right: -25px;
+  top: 35px;
+  right: -20px;
   background: #FFFFFF;
-  padding: 24px 28px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lg);
-  max-width: 280px;
-  border-left: 4px solid var(--garmen-magenta);
+  padding: 22px 26px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  max-width: 270px;
+  border-left: 3px solid var(--kreatista-green);
 }
 
 .quote-overlay-card p {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
-  color: var(--text-main);
-  margin: 0 0 10px;
+  color: var(--text-dark);
+  margin: 0 0 8px;
 }
 
 .quote-overlay-card cite {
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--garmen-magenta);
+  color: var(--kreatista-green);
   text-transform: uppercase;
   font-style: normal;
 }
 
 .about-copy .section-label {
-  margin-bottom: 8px;
+  color: var(--kreatista-green);
+  margin-bottom: 6px;
 }
 
 .about-copy h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(32px, 3.8vw, 44px);
-  font-weight: 800;
-  color: var(--garmen-navy);
-  margin: 0 0 20px;
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 18px;
   line-height: 1.25;
 }
 
 .about-feature-item {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .about-feature-item h4 {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 700;
-  color: var(--garmen-navy);
-  margin: 0 0 6px;
+  color: var(--text-dark);
+  margin: 0 0 5px;
 }
 
 .about-feature-item p {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 13.5px;
+  color: var(--text-gray);
   margin: 0;
 }
 
-/* Stats Counter Bar (matching Image 2) */
+/* Green Kreatista Button */
+.btn-kreatista {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--kreatista-green);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid var(--kreatista-green);
+  transition: all 0.25s ease;
+}
+
+.btn-kreatista:hover {
+  background: var(--kreatista-green-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Stats Counter Bar (Screenshot 2: Soft green numbers) */
 .stats-strip {
   background: #FFFFFF;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  padding: 45px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 40px 0;
   margin: 40px 0;
 }
 
@@ -842,8 +837,8 @@ textarea.form-control {
 }
 
 .stats-col {
-  border-right: 1px solid var(--border-color);
-  padding: 10px 20px;
+  border-right: 1px solid var(--border-light);
+  padding: 5px 15px;
 }
 
 .stats-col:last-child {
@@ -852,108 +847,156 @@ textarea.form-control {
 
 .stats-number {
   font-family: var(--font-heading);
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 800;
-  color: var(--garmen-magenta);
+  color: var(--kreatista-green);
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .stats-label {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  color: var(--text-gray);
   text-transform: uppercase;
 }
 
-/* 3 Production Feature Cards (Image 2) */
+/* Video Banner with 3 Overlapping Floating Cards (Screenshot 2) */
+.video-banner-wrap {
+  position: relative;
+  background-color: #1E2238;
+  color: #FFFFFF;
+  padding: 100px 0 140px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.video-banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.video-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 34, 56, 0.75);
+}
+
+.video-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.video-banner-content .section-label {
+  color: #E2E8F0;
+}
+
+.video-banner-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.8vw, 42px);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.video-banner-content p {
+  color: #CBD5E1;
+  font-size: 14.5px;
+  margin-bottom: 24px;
+}
+
+/* 3 Floating Cards (Screenshot 2) */
 .features-3-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: -50px;
+  gap: 22px;
+  margin-top: -60px;
   position: relative;
   z-index: 10;
 }
 
 .feature-box {
   background: #FFFFFF;
-  padding: 30px 28px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-md);
-  border-top: 3px solid var(--garmen-magenta);
-  transition: transform 0.3s ease;
+  padding: 28px 24px;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s;
 }
 
 .feature-box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .feature-box-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--garmen-magenta-light);
-  color: var(--garmen-magenta);
-  border-radius: var(--radius-sm);
+  width: 40px;
+  height: 40px;
+  background: var(--kreatista-green-light);
+  color: var(--kreatista-green);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .feature-box-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .feature-box h4 {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
-  color: var(--garmen-navy);
-  margin: 0 0 10px;
+  color: var(--text-dark);
+  margin: 0 0 8px;
 }
 
 .feature-box p {
-  font-size: 13.5px;
-  color: var(--text-muted);
+  font-size: 13px;
+  color: var(--text-gray);
   line-height: 1.6;
   margin: 0;
 }
 
-/* Team Grid (matching Image 2) */
+/* Team Grid (Screenshot 2) */
 .team-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 22px;
 }
 
 .team-card {
   background: #FFFFFF;
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .team-card-thumb {
-  height: 280px;
+  height: 270px;
   overflow: hidden;
-  background: #CBD5E1;
+  background: #E2E8F0;
 }
 
 .team-card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.5s ease;
 }
 
 .team-card:hover .team-card-thumb img {
@@ -961,53 +1004,52 @@ textarea.form-control {
 }
 
 .team-card-body {
-  padding: 22px 18px;
+  padding: 18px 16px;
 }
 
 .team-card-name {
   font-family: var(--font-heading);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--garmen-navy);
+  color: var(--text-dark);
   margin: 0 0 4px;
 }
 
 .team-card-role {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin: 0 0 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 11.5px;
+  color: var(--text-gray);
+  margin: 0 0 12px;
 }
 
 .team-card-socials {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .team-card-socials a {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-surface);
-  color: var(--text-muted);
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+  background: #F1F5F9;
+  color: #64748B;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  transition: background 0.25s, color 0.25s;
+  font-size: 10.5px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
 }
 
 .team-card-socials a:hover {
-  background: var(--garmen-magenta);
+  background: var(--kreatista-green);
   color: #FFFFFF;
 }
 
-/* Client Logos Strip (matching Image 2) */
+/* Client Logos Strip (Screenshot 2) */
 .clients-strip {
-  padding: 60px 0;
-  border-top: 1px solid var(--border-color);
+  padding: 50px 0;
+  border-top: 1px solid var(--border-light);
   background: #FFFFFF;
 }
 
@@ -1016,97 +1058,83 @@ textarea.form-control {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 24px;
 }
 
 .clients-title {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
-  color: var(--garmen-navy);
+  color: var(--text-dark);
 }
 
 .clients-logos {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
   flex-wrap: wrap;
 }
 
 .client-logo-item {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   color: #94A3B8;
   letter-spacing: -0.02em;
   opacity: 0.75;
-  transition: opacity 0.3s;
-}
-
-.client-logo-item:hover {
-  opacity: 1;
-  color: var(--garmen-navy);
 }
 
 /* ==========================================================================
-   4-Column Dark Footer (matching Images 1 & 3)
+   9. Global Dark 4-Column Footer (Screenshots 1 & 3)
    ========================================================================== */
 .site-footer {
-  background-color: var(--garmen-navy-dark);
+  background-color: var(--garmen-footer-navy);
   color: #CBD5E1;
-  padding: 85px 0 0;
+  padding: 80px 0 0;
 }
 
 .footer-grid-4 {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 45px;
-  padding-bottom: 70px;
-}
-
-.footer-col .brand-name {
-  color: #FFFFFF;
-}
-
-.footer-col .brand-sub {
-  color: rgba(255, 255, 255, 0.5);
+  gap: 40px;
+  padding-bottom: 65px;
 }
 
 .footer-bio {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #94A3B8;
   line-height: 1.7;
-  margin: 18px 0 24px;
+  margin: 16px 0 22px;
 }
 
 .footer-social-icons {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .footer-social-icons a {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--garmen-pink);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.25s ease;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .footer-social-icons a:hover {
-  background: var(--garmen-magenta);
+  background: var(--garmen-pink-hover);
+  transform: translateY(-2px);
 }
 
 .footer-heading {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 700;
   color: #FFFFFF;
-  margin: 0 0 22px;
-  letter-spacing: -0.01em;
+  margin: 0 0 20px;
 }
 
 .footer-links {
@@ -1116,20 +1144,20 @@ textarea.form-control {
 }
 
 .footer-links li {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .footer-links a {
   color: #94A3B8;
-  font-size: 14px;
+  font-size: 13.5px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
 .footer-links a:hover {
-  color: var(--garmen-magenta);
-  padding-left: 5px;
+  color: var(--garmen-pink);
+  padding-left: 4px;
 }
 
 .footer-info-item {
@@ -1137,102 +1165,28 @@ textarea.form-control {
   align-items: flex-start;
   gap: 12px;
   color: #94A3B8;
-  font-size: 14px;
-  margin-bottom: 16px;
+  font-size: 13.5px;
+  margin-bottom: 14px;
 }
 
 .footer-info-item svg {
-  width: 16px;
-  height: 16px;
-  color: var(--garmen-magenta);
+  width: 15px;
+  height: 15px;
+  color: var(--garmen-pink);
   margin-top: 4px;
   flex-shrink: 0;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 24px 0;
+  background-color: var(--garmen-footer-deep);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 22px 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #64748B;
 }
 
-/* ==========================================================================
-   Home 1 Hero Slider / Big Banner
-   ========================================================================== */
-.home-hero {
-  position: relative;
-  min-height: 640px;
-  background-color: var(--garmen-navy-dark);
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.home-hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.55);
-}
-
-.home-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(17, 26, 46, 0.95) 0%, rgba(17, 26, 46, 0.6) 60%, rgba(17, 26, 46, 0.2) 100%);
-}
-
-.home-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 680px;
-  padding: 80px 0;
-}
-
-.home-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(216, 74, 112, 0.2);
-  color: var(--garmen-magenta-light);
-  border: 1px solid rgba(216, 74, 112, 0.4);
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.home-hero h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(40px, 5.5vw, 62px);
-  font-weight: 800;
-  margin: 0 0 20px;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.home-hero p {
-  font-size: 16.5px;
-  color: #CBD5E1;
-  line-height: 1.7;
-  margin: 0 0 35px;
-}
-
-.home-hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-/* ==========================================================================
-   Responsive Media Queries
-   ========================================================================== */
+/* Responsive */
 @media (max-width: 1024px) {
   .cards-grid-3 {
     grid-template-columns: repeat(2, 1fr);
@@ -1242,7 +1196,7 @@ textarea.form-control {
   }
   .stats-grid-4 {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 25px;
   }
   .stats-col {
     border-right: 0;
@@ -1250,13 +1204,13 @@ textarea.form-control {
   .footer-grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
-  .project-form-grid, .about-split {
+  .project-form-grid, .about-split, .about-hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 35px;
   }
   .features-3-row {
     grid-template-columns: 1fr;
-    margin-top: 30px;
+    margin-top: 25px;
   }
 }
 
@@ -1270,13 +1224,12 @@ textarea.form-control {
   .mobile-drawer {
     display: block;
     position: fixed;
-    top: 84px;
+    top: 76px;
     left: 0;
     right: 0;
-    background: #FFFFFF;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: var(--garmen-navy);
     padding: 24px;
-    border-bottom: 2px solid var(--garmen-magenta);
+    border-bottom: 2px solid var(--garmen-pink);
     transform: translateY(-120%);
     transition: transform 0.3s ease;
     z-index: 999;
@@ -1295,7 +1248,7 @@ textarea.form-control {
   .mobile-drawer a {
     font-size: 15px;
     font-weight: 600;
-    color: var(--garmen-navy);
+    color: #FFFFFF;
   }
   .cards-grid-3 {
     grid-template-columns: 1fr;
