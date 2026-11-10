@@ -35,6 +35,7 @@
   
   --color-primary: #1E2238;
   --color-primary-dark: #13192B;
+  --color-navy: #1E2238;
   --color-accent: #D84A70;
   --color-success: #1B8755;
   --border-color: #E2E8F0;
@@ -2699,6 +2700,7 @@ html[data-theme="dark"] {
 
   --color-primary: #F8FAFC;
   --color-primary-dark: #0B0F19;
+  --color-navy: #161F36;
   --color-accent: #FF7597;
   --color-success: #34D399;
   --border-color: #334155;
@@ -2936,11 +2938,46 @@ html[data-theme="dark"] .cert-desc {
   color: #CBD5E1 !important;
 }
 
-/* Forms & Inputs */
+/* Forms, Inputs & High-Visibility Placeholders */
+input::placeholder,
+textarea::placeholder,
+.form-control::placeholder {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+.form-control::-moz-placeholder {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+.form-control:-ms-input-placeholder {
+  color: #94A3B8 !important;
+  opacity: 1 !important;
+}
+
+/* Dark Theme Form Controls & RFQ Booking Forms */
 html[data-theme="dark"] .form-control,
 html[data-theme="dark"] input,
 html[data-theme="dark"] textarea,
-html[data-theme="dark"] select {
+html[data-theme="dark"] select,
+#quote-section input,
+#quote-section textarea,
+#quote-section select,
+.rfq-card input,
+.rfq-card textarea,
+.rfq-card select {
   background-color: #1E293B !important;
   color: #FFFFFF !important;
   border: 1px solid #475569 !important;
@@ -2949,17 +2986,80 @@ html[data-theme="dark"] select {
 html[data-theme="dark"] .form-control:focus,
 html[data-theme="dark"] input:focus,
 html[data-theme="dark"] textarea:focus,
-html[data-theme="dark"] select:focus {
+html[data-theme="dark"] select:focus,
+#quote-section input:focus,
+#quote-section textarea:focus,
+#quote-section select:focus,
+.rfq-card input:focus,
+.rfq-card textarea:focus,
+.rfq-card select:focus {
   border-color: #D84A70 !important;
-  box-shadow: 0 0 0 3px rgba(216, 74, 112, 0.25) !important;
+  box-shadow: 0 0 0 3px rgba(216, 74, 112, 0.35) !important;
+  outline: none !important;
 }
 
 html[data-theme="dark"] .form-label {
   color: #F8FAFC !important;
 }
 
-html[data-theme="dark"] .form-control::placeholder {
-  color: #94A3B8 !important;
+/* Dark Theme & RFQ Form Placeholders (Crisp Slate Silver #CBD5E1 - 100% Readable) */
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder,
+html[data-theme="dark"] .form-control::placeholder,
+#quote-section input::placeholder,
+#quote-section textarea::placeholder,
+.rfq-card input::placeholder,
+.rfq-card textarea::placeholder {
+  color: #CBD5E1 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] input::-webkit-input-placeholder,
+html[data-theme="dark"] textarea::-webkit-input-placeholder,
+html[data-theme="dark"] .form-control::-webkit-input-placeholder,
+#quote-section input::-webkit-input-placeholder,
+#quote-section textarea::-webkit-input-placeholder,
+.rfq-card input::-webkit-input-placeholder,
+.rfq-card textarea::-webkit-input-placeholder {
+  color: #CBD5E1 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #CBD5E1 !important;
+}
+
+html[data-theme="dark"] input::-moz-placeholder,
+html[data-theme="dark"] textarea::-moz-placeholder,
+html[data-theme="dark"] .form-control::-moz-placeholder,
+#quote-section input::-moz-placeholder,
+#quote-section textarea::-moz-placeholder,
+.rfq-card input::-moz-placeholder,
+.rfq-card textarea::-moz-placeholder {
+  color: #CBD5E1 !important;
+  opacity: 1 !important;
+}
+
+/* Dark Mode Select Options */
+html[data-theme="dark"] select option,
+#quote-section select option,
+.rfq-card select option {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+}
+
+/* RFQ / Quote Section Container & Card */
+#quote-section .container > div,
+.rfq-card {
+  background-color: #161F36 !important;
+  border: 1px solid #334155 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+html[data-theme="dark"] #quote-section .container > div,
+html[data-theme="dark"] .rfq-card {
+  background-color: #161F36 !important;
+  border-color: #334155 !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6) !important;
 }
 
 html[data-theme="dark"] .project-form-wrap,
