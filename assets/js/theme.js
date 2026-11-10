@@ -132,8 +132,9 @@
         }
       }
 
-      // 5.3 Mobile Hamburger Button
-      if (!container.querySelector('.menu-toggle, .hamburger-btn')) {
+      // 5.3 Mobile Hamburger Button (must be outside .header-cta so it remains visible on mobile when .header-cta is hidden)
+      const headerRow = container.closest('.header-inner, .header-container, header > .container, header') || container.parentElement;
+      if (!headerRow.querySelector('.menu-toggle, .hamburger-btn, .mobile-toggle')) {
         const menuBtn = document.createElement('button');
         menuBtn.type = 'button';
         menuBtn.className = 'menu-toggle hamburger-btn';
@@ -148,7 +149,13 @@
             <span class="hamburger-bar"></span>
           </span>
         `;
-        container.appendChild(menuBtn);
+        headerRow.appendChild(menuBtn);
+      } else {
+        // If hamburger is currently inside container (.header-cta), move it out to headerRow
+        const insideBtn = container.querySelector('.menu-toggle, .hamburger-btn, .mobile-toggle');
+        if (insideBtn && headerRow !== container) {
+          headerRow.appendChild(insideBtn);
+        }
       }
     });
 
