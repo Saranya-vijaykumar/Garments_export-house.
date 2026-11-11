@@ -237,12 +237,20 @@
     preloader.classList.add('fade-out');
   }
 
-  // Initialize all on DOM ready
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize all on DOM ready (Safe check for loading / interactive / complete)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initScrollReveals();
+      initAnimatedCounters();
+      initTestimonialSlider();
+      initBackToTop();
+      initPreloader();
+    });
+  } else {
     initScrollReveals();
     initAnimatedCounters();
     initTestimonialSlider();
     initBackToTop();
     initPreloader();
-  });
+  }
 })();

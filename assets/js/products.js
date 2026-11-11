@@ -677,11 +677,16 @@
     }
   }
 
-  // DOM Ready initialization
-  document.addEventListener('DOMContentLoaded', () => {
+  // DOM Ready initialization (Safe check for loading / interactive / complete)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initProductFilters();
+      initProductDetailPage();
+    });
+  } else {
     initProductFilters();
     initProductDetailPage();
-  });
+  }
 
   window.AuraProducts = {
     getAll: () => productsData,

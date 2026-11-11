@@ -2232,7 +2232,7 @@ textarea.form-control {
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  min-height: 28px;
+  min-height: 30px;
   display: flex;
   align-items: center;
 }
@@ -2244,7 +2244,7 @@ textarea.form-control {
   color: var(--garmen-navy);
   margin: 0 0 10px;
   line-height: 1.35;
-  min-height: 46px;
+  min-height: 54px;
   display: flex;
   align-items: flex-start;
 }
@@ -2254,7 +2254,9 @@ textarea.form-control {
   color: #64748B;
   line-height: 1.6;
   margin: 0;
-  flex-grow: 1;
+  min-height: 92px;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* Hub Card */
