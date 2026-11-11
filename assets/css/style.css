@@ -3130,12 +3130,13 @@ html[data-theme="dark"] .filter-btn.active {
   border-color: #D84A70 !important;
 }
 
-/* Tables & Data Grids (Full-Width, Centered & Equal Spacing) */
+/* Tables & Data Grids (Full-Width, Centered & Equal Balanced Spacing) */
 .table-card {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto 35px !important;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: #FFFFFF;
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
@@ -3144,18 +3145,20 @@ html[data-theme="dark"] .filter-btn.active {
 
 .table-card table {
   width: 100% !important;
-  min-width: 100% !important;
+  min-width: 820px;
   border-collapse: collapse !important;
-  table-layout: auto !important;
+  table-layout: fixed !important;
   text-align: left;
 }
 
 .table-card th,
 .table-card td {
-  padding: 16px 20px !important;
+  padding: 16px 18px !important;
   text-align: left !important;
   vertical-align: middle !important;
   font-size: 14px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .table-card th {

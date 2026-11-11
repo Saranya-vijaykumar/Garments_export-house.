@@ -244,15 +244,23 @@
       </div>
 
       <div class="table-card">
-        <table style="width: 100%; min-width: 780px; border-collapse: collapse;">
+        <table style="width: 100%; min-width: 820px; table-layout: fixed; border-collapse: collapse;">
+          <colgroup>
+            <col style="width: 22%;">
+            <col style="width: 12%;">
+            <col style="width: 20%;">
+            <col style="width: 14%;">
+            <col style="width: 18%;">
+            <col style="width: 14%;">
+          </colgroup>
           <thead>
             <tr>
-              <th>Machine Model</th>
-              <th>Origin</th>
-              <th>Diameter &amp; Feeder</th>
-              <th>Gauge Range</th>
-              <th>Primary Fabric Formats</th>
-              <th>Daily Fleet Output</th>
+              <th style="width: 22%;">Machine Model</th>
+              <th style="width: 12%;">Origin</th>
+              <th style="width: 20%;">Diameter &amp; Feeder</th>
+              <th style="width: 14%;">Gauge Range</th>
+              <th style="width: 18%;">Primary Fabric Formats</th>
+              <th style="width: 14%;">Daily Fleet Output</th>
             </tr>
           </thead>
           <tbody>
@@ -316,7 +324,7 @@
 
         <form action="contact.html" method="GET" class="service-inquiry-form" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <input type="hidden" name="service" value="circular-knitting">
-          <input type="text" name="company_name" placeholder="Brand / Company Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="company_name" placeholder="Brand / Company Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed in name)" oninput="this.value = this.value.replace(/[0-9]/g, '')" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <input type="email" name="email" placeholder="Corporate Work Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <select name="fabric_format" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
             <option value="Single Jersey 160-220 GSM">Single Jersey (160-220 GSM)</option>
@@ -325,7 +333,7 @@
             <option value="Organic Cotton Fleece 400 GSM">Heavyweight Fleece (400 GSM)</option>
             <option value="Custom Knitted Structure">Custom Fabric Development</option>
           </select>
-          <input type="text" name="order_volume" placeholder="Target Quantity (e.g. 5000 kg or pcs) *" required pattern="^[0-9]+(\s*(pcs|pieces|units|kg|tons))?$" title="Please enter a valid numeric quantity (e.g. 5000 or 5000 kg)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="order_volume" placeholder="Target Quantity (e.g. 5000 kg or pcs) *" required pattern="^\s*[0-9]+(\s*(pcs|pieces|units|kg|tons))?\s*$" title="Please enter a valid numeric quantity (e.g. 5000 or 5000 kg)" oninput="if(/^[^\d]+$/.test(this.value)) this.value='';" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <textarea name="specifications" placeholder="Describe your technical specifications or destination market..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
           <button type="submit" class="btn-make-project" style="grid-column:1 / -1; justify-content:center; padding:16px;">SUBMIT KNITTING SPECIFICATION INQUIRY ➔</button>
         </form>

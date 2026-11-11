@@ -442,7 +442,7 @@
           <p>Provide preliminary order quantities, style requirements, or target delivery windows to receive a formal FOB quote and swatch book.</p>
           <form class="garmen-project-form">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Full Name" required>
+              <input type="text" name="full_name" class="form-control" placeholder="Full Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed in name)" oninput="this.value = this.value.replace(/[0-9]/g, '')">
             </div>
             <div class="form-group-row">
               <input type="email" class="form-control" placeholder="Email Address" required>

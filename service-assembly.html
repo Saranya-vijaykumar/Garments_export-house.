@@ -244,15 +244,23 @@
       </div>
 
       <div class="table-card">
-        <table style="width: 100%; min-width: 780px; border-collapse: collapse;">
+        <table style="width: 100%; min-width: 820px; table-layout: fixed; border-collapse: collapse;">
+          <colgroup>
+            <col style="width: 22%;">
+            <col style="width: 12%;">
+            <col style="width: 22%;">
+            <col style="width: 12%;">
+            <col style="width: 18%;">
+            <col style="width: 14%;">
+          </colgroup>
           <thead>
             <tr>
-              <th>Workstation Model</th>
-              <th>Manufacturer</th>
-              <th>Machine Type</th>
-              <th>Active Units</th>
-              <th>Target Garment Category</th>
-              <th>Cycle Speed</th>
+              <th style="width: 22%;">Workstation Model</th>
+              <th style="width: 12%;">Manufacturer</th>
+              <th style="width: 22%;">Machine Type</th>
+              <th style="width: 12%;">Active Units</th>
+              <th style="width: 18%;">Target Garment Category</th>
+              <th style="width: 14%;">Cycle Speed</th>
             </tr>
           </thead>
           <tbody>
@@ -316,7 +324,7 @@
 
         <form action="contact.html" method="GET" class="service-inquiry-form" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <input type="hidden" name="service" value="assembly-lines">
-          <input type="text" name="company_name" placeholder="Brand / Importer Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="company_name" placeholder="Brand / Importer Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed in name)" oninput="this.value = this.value.replace(/[0-9]/g, '')" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <input type="email" name="email" placeholder="Buyer / Sourcing Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <select name="garment_category" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
             <option value="Men's Casual & Polos">Men's Knitted Polos &amp; Tees</option>
@@ -325,7 +333,7 @@
             <option value="Athletic & Compression Wear">Seamless Athletic &amp; Gym Wear</option>
             <option value="Woven Shirts & Trousers">Formal Shirts &amp; Chino Trousers</option>
           </select>
-          <input type="text" name="order_volume" placeholder="Order Volume (e.g. 10000 pcs) *" required pattern="^[0-9]+(\s*(pcs|pieces|units|kg|tons))?$" title="Please enter a valid numeric quantity (e.g. 5000 or 10000 pcs)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="order_volume" placeholder="Order Volume (e.g. 10000 pcs) *" required pattern="^\s*[0-9]+(\s*(pcs|pieces|units|kg|tons))?\s*$" title="Please enter a valid numeric quantity (e.g. 5000 or 10000 pcs)" oninput="if(/^[^\d]+$/.test(this.value)) this.value='';" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <textarea name="specifications" placeholder="Provide delivery deadlines, destination ports (e.g. Rotterdam, New York), or tech pack specifications..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
           <button type="submit" class="btn-make-project" style="grid-column:1 / -1; justify-content:center; padding:16px;">REQUEST PRODUCTION CAPACITY &amp; COSTING ➔</button>
         </form>

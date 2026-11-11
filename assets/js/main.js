@@ -101,6 +101,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Submit handler
     form.addEventListener('submit', function (e) {
+      // Strict validity check
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Check for numbers in Name fields (Item 10)
+      const nameInputs = form.querySelectorAll('input[name*="name"], input[placeholder*="Name"], input[placeholder*="Brand"]');
+      let hasNameError = false;
+      nameInputs.forEach(function (inp) {
+        if (hasNameError) return;
+        const val = inp.value.trim();
+        if (/\d/.test(val) || /^[\d\s]+$/.test(val)) {
+          hasNameError = true;
+          inp.setCustomValidity('Please enter letters only. Names cannot contain numbers.');
+          inp.reportValidity();
+          inp.style.borderColor = '#EF4444';
+          inp.focus();
+        }
+      });
+
+      if (hasNameError) {
+        e.preventDefault();
+        return false;
+      }
+
       e.preventDefault();
       const statusEl = form.querySelector('.form-status') || form.nextElementSibling;
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -330,56 +356,104 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 9. Form Input Validation (Items 7 & 10: Reject Numbers in Name, Validate Order Volume)
-  const allInquiryForms = document.querySelectorAll('.service-inquiry-form, .garmen-project-form');
-  allInquiryForms.forEach(function (form) {
-    form.addEventListener('submit', function (e) {
+  // 9. Real-Time Form Input Sanitization & Validation (Items 7 & 10)
+  // Real-time filtering: Immediately prevent/remove digits from names and pure letters from volume
+  function initFormValidation() {
+    const allForms = document.querySelectorAll('form, .service-inquiry-form, .garmen-project-form');
+
+    allForms.forEach(function (form) {
+      // Name & Company/Brand inputs: strictly reject numbers
       const nameInputs = form.querySelectorAll('input[name*="name"], input[placeholder*="Name"], input[placeholder*="Brand"]');
-      let hasError = false;
-
       nameInputs.forEach(function (input) {
-        if (hasError) return;
-        const val = input.value.trim();
-        if (/\d/.test(val) || /^[\d\s]+$/.test(val)) {
-          hasError = true;
-          input.setCustomValidity('Please enter letters only. Names cannot contain numbers.');
-          input.reportValidity();
-          input.style.borderColor = '#EF4444';
-          input.focus();
-        } else {
-          input.setCustomValidity('');
-          input.style.borderColor = '';
+        function sanitizeName() {
+          const original = input.value;
+          const sanitized = original.replace(/[0-9]/g, '');
+          if (original !== sanitized) {
+            input.value = sanitized;
+            input.setCustomValidity('Letters only. Numbers are not permitted in name fields.');
+            input.reportValidity();
+            input.style.borderColor = '#EF4444';
+          } else {
+            input.setCustomValidity('');
+            input.style.borderColor = '';
+          }
         }
+        input.addEventListener('input', sanitizeName);
+        input.addEventListener('paste', function () {
+          setTimeout(sanitizeName, 10);
+        });
       });
 
-      if (hasError) {
-        e.preventDefault();
-        return false;
-      }
+      // Volume & Quantity inputs: require numeric input, reject pure letters like 'dfd'
+      const volumeInputs = form.querySelectorAll('input[name="order_volume"], input[placeholder*="Quantity"], input[placeholder*="Volume"]');
+      volumeInputs.forEach(function (vInput) {
+        function sanitizeVolume() {
+          const val = vInput.value.trim();
+          // If user types pure letters without any number (e.g. "dfd")
+          if (/^[^\d]+$/.test(val)) {
+            vInput.value = '';
+            vInput.setCustomValidity('Order volume requires a numeric quantity (e.g. 5000 or 10000 pcs).');
+            vInput.reportValidity();
+            vInput.style.borderColor = '#EF4444';
+          } else if (val && !/\d/.test(val)) {
+            vInput.setCustomValidity('Please include the numeric amount.');
+            vInput.style.borderColor = '#EF4444';
+          } else {
+            vInput.setCustomValidity('');
+            vInput.style.borderColor = '';
+          }
+        }
+        vInput.addEventListener('input', sanitizeVolume);
+        vInput.addEventListener('blur', function () {
+          const val = vInput.value.trim();
+          if (val && !/\d/.test(val)) {
+            vInput.setCustomValidity('Order volume must include a number (e.g. 5000 pcs).');
+            vInput.reportValidity();
+            vInput.style.borderColor = '#EF4444';
+          }
+        });
+      });
 
-      const volumeInput = form.querySelector('input[name="order_volume"], input[placeholder*="Quantity"], input[placeholder*="Volume"]');
-      if (volumeInput) {
-        const vVal = volumeInput.value.trim();
-        if (!/\d/.test(vVal)) {
-          hasError = true;
-          volumeInput.setCustomValidity('Please enter a valid numeric quantity (e.g. 5000 or 10000 pcs).');
-          volumeInput.reportValidity();
-          volumeInput.style.borderColor = '#EF4444';
-          volumeInput.focus();
+      // Form submission validation (Capture phase to precede all other handlers)
+      form.addEventListener('submit', function (e) {
+        let hasError = false;
+
+        // Check name inputs
+        nameInputs.forEach(function (input) {
+          if (hasError) return;
+          const val = input.value.trim();
+          if (/\d/.test(val) || /^[\d\s]+$/.test(val) || (input.required && val.length < 2)) {
+            hasError = true;
+            input.setCustomValidity('Please enter letters only (no numbers allowed in name).');
+            input.reportValidity();
+            input.style.borderColor = '#EF4444';
+            input.focus();
+          }
+        });
+
+        // Check volume inputs
+        if (!hasError) {
+          volumeInputs.forEach(function (vInput) {
+            if (hasError) return;
+            const vVal = vInput.value.trim();
+            if (!/\d/.test(vVal)) {
+              hasError = true;
+              vInput.setCustomValidity('Please enter a valid numeric quantity (e.g. 5000 or 10000 pcs).');
+              vInput.reportValidity();
+              vInput.style.borderColor = '#EF4444';
+              vInput.focus();
+            }
+          });
+        }
+
+        if (hasError) {
           e.preventDefault();
+          e.stopImmediatePropagation();
           return false;
-        } else {
-          volumeInput.setCustomValidity('');
-          volumeInput.style.borderColor = '';
         }
-      }
+      }, true);
     });
+  }
 
-    form.querySelectorAll('input').forEach(function (inp) {
-      inp.addEventListener('input', function () {
-        inp.setCustomValidity('');
-        inp.style.borderColor = '';
-      });
-    });
-  });
+  initFormValidation();
 });

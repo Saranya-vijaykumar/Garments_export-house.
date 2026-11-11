@@ -244,14 +244,21 @@
       </div>
 
       <div class="table-card">
-        <table style="width: 100%; min-width: 780px; border-collapse: collapse;">
+        <table style="width: 100%; min-width: 820px; table-layout: fixed; border-collapse: collapse;">
+          <colgroup>
+            <col style="width: 22%;">
+            <col style="width: 12%;">
+            <col style="width: 24%;">
+            <col style="width: 26%;">
+            <col style="width: 16%;">
+          </colgroup>
           <thead>
             <tr>
-              <th>Equipment Model</th>
-              <th>Origin</th>
-              <th>Configuration</th>
-              <th>Key Features</th>
-              <th>Daily Embellishment Capacity</th>
+              <th style="width: 22%;">Equipment Model</th>
+              <th style="width: 12%;">Origin</th>
+              <th style="width: 24%;">Configuration</th>
+              <th style="width: 26%;">Key Features</th>
+              <th style="width: 16%;">Daily Embellishment Capacity</th>
             </tr>
           </thead>
           <tbody>
@@ -310,7 +317,7 @@
 
         <form action="contact.html" method="GET" class="service-inquiry-form" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <input type="hidden" name="service" value="specialty-finishes">
-          <input type="text" name="company_name" placeholder="Brand / Studio Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="company_name" placeholder="Brand / Studio Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed in name)" oninput="this.value = this.value.replace(/[0-9]/g, '')" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <input type="email" name="email" placeholder="Designer / Production Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <select name="finish_type" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
             <option value="3D Puff Embroidery">Computerized 3D Puff Embroidery</option>
@@ -320,7 +327,7 @@
             <option value="Bio-Enzyme Mineral Wash">Enzyme Wash &amp; Vintage Mineral Dyeing</option>
             <option value="FSC Hangtags & Trims">Custom Corozo Buttons &amp; FSC Hangtags</option>
           </select>
-          <input type="text" name="order_volume" placeholder="Quantity / Style Count (e.g. 2500 pcs) *" required pattern="^[0-9]+(\s*(pcs|pieces|units|kg|tons))?$" title="Please enter a valid numeric quantity (e.g. 2500 or 2500 pcs)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="order_volume" placeholder="Quantity / Style Count (e.g. 2500 pcs) *" required pattern="^\s*[0-9]+(\s*(pcs|pieces|units|kg|tons))?\s*$" title="Please enter a valid numeric quantity (e.g. 2500 or 2500 pcs)" oninput="if(/^[^\d]+$/.test(this.value)) this.value='';" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
           <textarea name="specifications" placeholder="Describe placement dimensions (e.g. 28cm center chest, left sleeve patch), thread colors, or Pantone codes..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
           <button type="submit" class="btn-make-project" style="grid-column:1 / -1; justify-content:center; padding:16px;">SUBMIT ARTWORK FOR STRIKE-OFF ➔</button>
         </form>
