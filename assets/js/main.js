@@ -291,4 +291,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // 7. Floating Back-to-Top Button Handler
+  const backToTopBtn = document.querySelector('.back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });
