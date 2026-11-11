@@ -132,44 +132,18 @@
 /* --------------------------------------------------------------------------
    3. Fail-Safe Scroll Reveal Classes (Guaranteed Visible by Default)
    -------------------------------------------------------------------------- */
+/* Elements are ALWAYS 100% visible to prevent blank pages */
 .reveal,
 .reveal-left,
 .reveal-right,
-.reveal-scale {
-  opacity: 1;
-  transform: none;
-}
-
-/* Progressive enhancement: Only hide elements if JavaScript observer is active */
-.js-reveal-active .reveal:not(.active),
-.js-reveal-active .reveal-left:not(.active),
-.js-reveal-active .reveal-right:not(.active),
-.js-reveal-active .reveal-scale:not(.active) {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.js-reveal-active .reveal-left:not(.active) {
-  transform: translateX(-35px);
-}
-
-.js-reveal-active .reveal-right:not(.active) {
-  transform: translateX(35px);
-}
-
-.js-reveal-active .reveal-scale:not(.active) {
-  transform: scale(0.96);
-}
-
-.js-reveal-active .reveal.active,
-.js-reveal-active .reveal-left.active,
-.js-reveal-active .reveal-right.active,
-.js-reveal-active .reveal-scale.active {
-  opacity: 1;
-  transform: none;
+.reveal-scale,
+.js-reveal-active .reveal,
+.js-reveal-active .reveal-left,
+.js-reveal-active .reveal-right,
+.js-reveal-active .reveal-scale {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 /* Stagger Delays */

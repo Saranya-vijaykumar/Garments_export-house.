@@ -244,7 +244,7 @@
       </div>
 
       <div class="table-card">
-        <table>
+        <table style="width: 100%; min-width: 780px; border-collapse: collapse;">
           <thead>
             <tr>
               <th>Equipment Model</th>
@@ -308,11 +308,11 @@
           </p>
         </div>
 
-        <form action="contact.html" method="GET" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <form action="contact.html" method="GET" class="service-inquiry-form" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <input type="hidden" name="service" value="specialty-finishes">
-          <input type="text" placeholder="Brand / Studio Name *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <input type="email" placeholder="Designer / Production Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <select style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="company_name" placeholder="Brand / Studio Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="email" name="email" placeholder="Designer / Production Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <select name="finish_type" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
             <option value="3D Puff Embroidery">Computerized 3D Puff Embroidery</option>
             <option value="Water-Based Screen Print">Water-Based / Discharge Screen Print</option>
             <option value="Direct-to-Garment DTG">Direct-to-Garment (DTG) Digital Print</option>
@@ -320,8 +320,8 @@
             <option value="Bio-Enzyme Mineral Wash">Enzyme Wash &amp; Vintage Mineral Dyeing</option>
             <option value="FSC Hangtags & Trims">Custom Corozo Buttons &amp; FSC Hangtags</option>
           </select>
-          <input type="text" placeholder="Quantity / Style Count" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <textarea placeholder="Describe placement dimensions (e.g. 28cm center chest, left sleeve patch), thread colors, or Pantone codes..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
+          <input type="text" name="order_volume" placeholder="Quantity / Style Count (e.g. 2500 pcs) *" required pattern="^[0-9]+(\s*(pcs|pieces|units|kg|tons))?$" title="Please enter a valid numeric quantity (e.g. 2500 or 2500 pcs)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <textarea name="specifications" placeholder="Describe placement dimensions (e.g. 28cm center chest, left sleeve patch), thread colors, or Pantone codes..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
           <button type="submit" class="btn-make-project" style="grid-column:1 / -1; justify-content:center; padding:16px;">SUBMIT ARTWORK FOR STRIKE-OFF ➔</button>
         </form>
       </div>

@@ -17,6 +17,9 @@
     );
     if (!revealElements.length) return;
 
+    // Immediately mark active to avoid any blank spaces or scroll delays
+    revealElements.forEach((el) => el.classList.add('active'));
+
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(
         (entries, obs) => {
@@ -28,15 +31,12 @@
           });
         },
         {
-          threshold: 0.12,
-          rootMargin: '0px 0px -40px 0px'
+          threshold: 0.05,
+          rootMargin: '50px'
         }
       );
 
       revealElements.forEach((el) => observer.observe(el));
-    } else {
-      // Fallback for older browsers
-      revealElements.forEach((el) => el.classList.add('active'));
     }
   }
 
@@ -233,19 +233,8 @@
   function initPreloader() {
     const preloader = document.querySelector('.preloader');
     if (!preloader) return;
-
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-      }, 350);
-    });
-
-    // Safeguard timeout
-    setTimeout(() => {
-      if (!preloader.classList.contains('fade-out')) {
-        preloader.classList.add('fade-out');
-      }
-    }, 2500);
+    preloader.style.display = 'none';
+    preloader.classList.add('fade-out');
   }
 
   // Initialize all on DOM ready

@@ -244,7 +244,7 @@
       </div>
 
       <div class="table-card">
-        <table>
+        <table style="width: 100%; min-width: 780px; border-collapse: collapse;">
           <thead>
             <tr>
               <th>Machine Model</th>
@@ -314,19 +314,19 @@
           </p>
         </div>
 
-        <form action="contact.html" method="GET" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <form action="contact.html" method="GET" class="service-inquiry-form" style="max-width:680px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
           <input type="hidden" name="service" value="circular-knitting">
-          <input type="text" placeholder="Brand / Company Name *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <input type="email" placeholder="Corporate Work Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <select style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="text" name="company_name" placeholder="Brand / Company Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter letters only (no numbers allowed)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <input type="email" name="email" placeholder="Corporate Work Email *" required style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <select name="fabric_format" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
             <option value="Single Jersey 160-220 GSM">Single Jersey (160-220 GSM)</option>
             <option value="French Terry 300-380 GSM">French Terry (300-380 GSM)</option>
             <option value="Interlock 220-280 GSM">Double Knit Interlock</option>
             <option value="Organic Cotton Fleece 400 GSM">Heavyweight Fleece (400 GSM)</option>
             <option value="Custom Knitted Structure">Custom Fabric Development</option>
           </select>
-          <input type="text" placeholder="Target Quantity (kg or pcs)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
-          <textarea placeholder="Describe your technical specifications or destination market..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
+          <input type="text" name="order_volume" placeholder="Target Quantity (e.g. 5000 kg or pcs) *" required pattern="^[0-9]+(\s*(pcs|pieces|units|kg|tons))?$" title="Please enter a valid numeric quantity (e.g. 5000 or 5000 kg)" style="padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;">
+          <textarea name="specifications" placeholder="Describe your technical specifications or destination market..." rows="3" style="grid-column:1 / -1; padding:14px 18px; border-radius:8px; border:1px solid #334155; background:#1E293B; color:white;"></textarea>
           <button type="submit" class="btn-make-project" style="grid-column:1 / -1; justify-content:center; padding:16px;">SUBMIT KNITTING SPECIFICATION INQUIRY ➔</button>
         </form>
       </div>

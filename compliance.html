@@ -258,11 +258,11 @@
           <p>Qualified buyer sourcing teams can request SMETA 4-Pillar audit documents, chemical management test logs, or GOTS scope certificates.</p>
           <form class="garmen-project-form">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Company / Brand Name" required>
+              <input type="text" name="company_name" class="form-control" placeholder="Company / Brand Name *" required pattern="^[A-Za-z\s.'&,-]{2,60}$" title="Please enter a valid company name (letters only, no numbers allowed)">
             </div>
             <div class="form-group-row">
-              <input type="text" class="form-control" placeholder="Buyer Name" required>
-              <input type="email" class="form-control" placeholder="Corporate Email" required>
+              <input type="text" name="buyer_name" class="form-control" placeholder="Buyer Name *" required pattern="^[A-Za-z\s.'-]{2,50}$" title="Please enter a valid person name (letters only, no numbers allowed)">
+              <input type="email" name="email" class="form-control" placeholder="Corporate Email *" required>
             </div>
             <div class="form-group">
               <select class="form-control" required>

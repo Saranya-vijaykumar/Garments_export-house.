@@ -308,4 +308,78 @@ document.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // 8. FAQ Accordion Interaction (Item 9)
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const card = btn.closest('.faq-card');
+      const isOpen = card.classList.contains('active');
+
+      // Close sibling cards for clean single-expanded view
+      document.querySelectorAll('.faq-card').forEach(function (c) {
+        c.classList.remove('active');
+        const q = c.querySelector('.faq-question');
+        if (q) q.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        card.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // 9. Form Input Validation (Items 7 & 10: Reject Numbers in Name, Validate Order Volume)
+  const allInquiryForms = document.querySelectorAll('.service-inquiry-form, .garmen-project-form');
+  allInquiryForms.forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      const nameInputs = form.querySelectorAll('input[name*="name"], input[placeholder*="Name"], input[placeholder*="Brand"]');
+      let hasError = false;
+
+      nameInputs.forEach(function (input) {
+        if (hasError) return;
+        const val = input.value.trim();
+        if (/\d/.test(val) || /^[\d\s]+$/.test(val)) {
+          hasError = true;
+          input.setCustomValidity('Please enter letters only. Names cannot contain numbers.');
+          input.reportValidity();
+          input.style.borderColor = '#EF4444';
+          input.focus();
+        } else {
+          input.setCustomValidity('');
+          input.style.borderColor = '';
+        }
+      });
+
+      if (hasError) {
+        e.preventDefault();
+        return false;
+      }
+
+      const volumeInput = form.querySelector('input[name="order_volume"], input[placeholder*="Quantity"], input[placeholder*="Volume"]');
+      if (volumeInput) {
+        const vVal = volumeInput.value.trim();
+        if (!/\d/.test(vVal)) {
+          hasError = true;
+          volumeInput.setCustomValidity('Please enter a valid numeric quantity (e.g. 5000 or 10000 pcs).');
+          volumeInput.reportValidity();
+          volumeInput.style.borderColor = '#EF4444';
+          volumeInput.focus();
+          e.preventDefault();
+          return false;
+        } else {
+          volumeInput.setCustomValidity('');
+          volumeInput.style.borderColor = '';
+        }
+      }
+    });
+
+    form.querySelectorAll('input').forEach(function (inp) {
+      inp.addEventListener('input', function () {
+        inp.setCustomValidity('');
+        inp.style.borderColor = '';
+      });
+    });
+  });
 });
