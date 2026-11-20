@@ -1568,10 +1568,10 @@ textarea.form-control {
 
 /* Client Logos Strip (Screenshot 2 & Fix Lone Wrapping) */
 .clients-strip {
-  padding: 38px 0;
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-  background: #FFFFFF;
+  padding: 36px 0;
+  border-top: 1px solid var(--border-light, #E2E8F0);
+  border-bottom: 1px solid var(--border-light, #E2E8F0);
+  background: #F8FAFC;
 }
 
 .clients-inner {
@@ -1587,10 +1587,10 @@ textarea.form-control {
 .clients-title {
   font-family: var(--font-heading);
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-dark);
+  color: #0F172A;
   text-align: center;
 }
 
@@ -1598,10 +1598,10 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px 28px;
+  gap: 16px 22px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -1609,14 +1609,37 @@ textarea.form-control {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 10px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  opacity: 0.85;
+  padding: 10px 20px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  opacity: 1;
 }
 
 .client-logo-item:hover {
-  opacity: 1;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--garmen-pink, #D84A70);
+}
+
+.client-logo-item img {
+  display: block;
+  max-height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.client-logo-item img {
+  display: block;
+  max-height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
 .client-logo-item img {
@@ -3559,20 +3582,35 @@ html[data-theme="dark"] .quote-overlay-card cite {
   color: #34D399 !important;
 }
 
-/* 5. Client Logos Strip */
+/* 5. Client Logos Strip (High Contrast White Badge Cards on Dark Theme) */
 html[data-theme="dark"] .clients-strip {
-  background: #0F172A !important;
-  border-color: #334155 !important;
+  background: #0B132B !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
+
 html[data-theme="dark"] .clients-title {
   color: #F8FAFC !important;
 }
-html[data-theme="dark"] .client-logo-item img {
-  filter: brightness(0) invert(1) !important;
-  opacity: 0.9 !important;
-}
-html[data-theme="dark"] .client-logo-item:hover img {
+
+html[data-theme="dark"] .client-logo-item {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
   opacity: 1 !important;
+}
+
+html[data-theme="dark"] .client-logo-item img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .client-logo-item:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  border-color: var(--garmen-pink, #D84A70) !important;
+  box-shadow: 0 8px 24px rgba(216, 74, 112, 0.35) !important;
 }
 
 /* 6. Hub & Location Cards */
