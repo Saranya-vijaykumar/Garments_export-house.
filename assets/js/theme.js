@@ -388,11 +388,21 @@
 
     // Listen for OS system theme changes
     if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem(THEME_KEY)) {
-          setTheme(e.matches ? 'dark' : 'light');
+      try {
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleThemeChange = (e) => {
+          if (!localStorage.getItem(THEME_KEY)) {
+            setTheme(e.matches ? 'dark' : 'light');
+          }
+        };
+        if (typeof mql.addEventListener === 'function') {
+          mql.addEventListener('change', handleThemeChange);
+        } else if (typeof mql.addListener === 'function') {
+          mql.addListener(handleThemeChange);
         }
-      });
+      } catch (err) {
+        // Safe failover for legacy browsers
+      }
     }
   }
 

@@ -2462,24 +2462,97 @@ textarea.form-control {
   text-shadow: 0 3px 15px rgba(0, 0, 0, 0.75);
 }
 
+.breadcrumbs,
 .page-hero-breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  font-size: 13.5px !important;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
 }
 
+.breadcrumbs a,
 .page-hero-breadcrumbs a {
   color: #FFFFFF;
   text-decoration: underline;
   transition: color 0.2s;
 }
 
+.breadcrumbs a:hover,
 .page-hero-breadcrumbs a:hover {
   color: var(--garmen-pink);
 }
+
+.breadcrumbs svg,
+.page-hero-breadcrumbs svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Photographic Hero across Blog & Detail Views */
+.photographic-hero {
+  position: relative !important;
+  min-height: 440px !important;
+  display: flex !important;
+  align-items: center !important;
+  background-color: #0F172A !important;
+  overflow: hidden !important;
+  padding: 80px 0 !important;
+}
+
+.photographic-hero-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  filter: brightness(0.7) !important;
+  z-index: 1 !important;
+}
+
+div.photographic-hero-bg {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.photographic-hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, rgba(11, 27, 43, 0.85) 0%, rgba(11, 27, 43, 0.95) 100%) !important;
+  z-index: 2 !important;
+}
+
+.photographic-hero-content {
+  position: relative !important;
+  z-index: 3 !important;
+  color: #FFFFFF !important;
+}
+
+/* Responsive Blog Detail Layout Grid */
+.blog-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+  .blog-detail-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 3.5rem;
+  }
+}
+
 
 .page-hero-quote {
   max-width: 680px;

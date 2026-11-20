@@ -537,7 +537,13 @@
     const readTime = document.getElementById('blogReadingTime');
     if (readTime) readTime.innerHTML = `${article.readTime} &bull; Technical Briefing`;
 
-    // 7. Hero Image
+    // 7. Hero Image & Top Hero Banner Background
+    const heroBannerImg = document.getElementById('blogHeroBannerImg') || document.querySelector('.photographic-hero-bg');
+    if (heroBannerImg && article.heroImage) {
+      heroBannerImg.src = article.heroImage;
+      heroBannerImg.alt = article.title;
+    }
+
     const heroImg = document.getElementById('blogHeroImg');
     if (heroImg) {
       heroImg.src = article.heroImage;
